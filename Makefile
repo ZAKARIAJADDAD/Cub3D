@@ -6,11 +6,11 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/08/04 22:47:00 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/08/11 11:44:59 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CC = clang
 CFLAGS = -fsanitize=address -g3 #-Wall -Wextra -Werror
 SRCS = main.c ft_split.c \
 		get_next_line/get_next_line.c get_next_line/get_next_line_utils.c\
@@ -19,6 +19,9 @@ SRCS = main.c ft_split.c \
 		player_movmentes.c\
 		rotation.c\
 		rander_map.c\
+		virtical_ray.c\
+		horizontal_ray.c\
+		rander_2dmap.c\
 
 OBJ = $(SRCS:.c=.o)
 NAME = cub3d
@@ -26,13 +29,13 @@ NAME = cub3d
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-
+	$(CC) $(OBJ) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	
 %.o: %.c
 	$(CC) -Imlx -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

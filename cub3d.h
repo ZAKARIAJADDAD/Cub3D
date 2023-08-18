@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/08/09 13:26:40 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/17 21:38:55 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define CUB3D_H
 
 # include "get_next_line/get_next_line.h"
-# include "mlx.h"
+// # include "mlx_Linux/mlx_int.h"
+// # include "mlx_Linux/mlx.h"
+#include "mlx.h"
 # include <fcntl.h>
 # include <math.h>
-# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -25,20 +26,31 @@
 # define ROTATE_ANGLE 0.0872665
 # define PLAYER_ANGLE 4.71239
 
-# define BLACK 0x00000000
-# define WHITE 0x00FFFFFF
-# define RED 0x00FF0000
-# define CYAN 0x0000FFFF
-# define GREEN 0x0000FF00
+#define X_WIDTH 1200
+#define Y_HEIGHT 400
+# define BLACK 	0x00000000
+# define SKY	0x000080FF
+# define GROUND 0x00A0A0A0
+# define WHITE	0x00FFFFFF
+# define RED	0x00FF0000
+# define CYAN	0x0000FFFF
+# define GREEN	0x0000FF00
+# define BLUE	0x000000FF
 # define DARK_TURQUOISE 0x0000CED1
-# define BLUE 0x000000FF
-# define PI 3.14159265359
-# define PLAYER_SPEED 3
+# define PI 3.14159265358979323846
+# define PLAYER_SPEED 5
 # define LINE_LENTH 30
 # define GRIDE_SIZE 50
 
 typedef struct t_player
 {
+
+
+	double 		distance;
+	double		pd;
+	double		pe;
+	double		old_x;
+	double		old_y;
 	double		ray_angle;
 	double		line_lenth;
 	double		save_y_inc;
@@ -59,10 +71,33 @@ typedef struct t_player
 	double		angle_in_radian;
 }				t_player;
 
+typedef struct  t_2d
+{	
+	double		ph;
+	double		pv;
+	double      x_2d;
+	double 	    y_2d;
+	double		virtical_x2d_end;
+	double		virtical_y2d_end;
+	double		horizontal_x2d_end;
+	double		horizontal_y2d_end;
+	double		calc_xend;
+	double		calc_yend;
+	double		ray_lenth;
+
+}    t_2d;
+
 typedef struct t_var
 {
-	// int             x_width;
-	// int             y_height;
+
+	double 		player_of_wall;
+	double 		tmp2d_player_x;
+	double 		tmp2d_player_y;
+	double 	x_screen;
+	double 	y_screen;
+	int             x_width;
+	int             y_height;
+	double		distance_to_projection_plane;
 	double		tmp_player_x;
 	double		tmp_player_y;
 	double		store_cos;
@@ -73,6 +108,7 @@ typedef struct t_var
 	int			line_length;
 	int			endian;
 	t_player	player_pos;
+	t_2d		player_2d;
 	char		**tmp_arry;
 	char		**tmp_arry2;
 	void		*mlx;
@@ -113,7 +149,7 @@ void			rotate_left(t_var *data);
 void			rotate_right(t_var *data);
 
 // draw line
-void			draw_line(t_var *data);
+void			draw_line(t_var *data, int x_pos);
 // void			draw_line2(t_var *data);
 void			player_direction(t_var *data);
 void			first_draw_line(t_var *data);
@@ -128,4 +164,22 @@ void			clac_player_distence(t_var *data);
 
 //files of  view
 void	player_view_filed(t_var *data);
+
+double	convert_dgree(int degree);
+void mini_map_pos(t_var *img, int y, int x);
+
+//filed of view ray cast
+void	horizotal_ray(t_var *data);
+void	virtical_ray(t_var *data);
+
+
+
+
+
+// 2dmap
+void    virtical_2d(t_var *data);
+void    horizontal_2d(t_var *data);
+void    clac_2dplayer_distence(t_var *data);
+
+
 #endif

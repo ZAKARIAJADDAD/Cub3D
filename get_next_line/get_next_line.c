@@ -93,7 +93,7 @@ char	*get_next_line(int fd)
 	static char	*save;
 	char		*lin;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE <= 0)
 	{
 		free(save);
 		return (0);

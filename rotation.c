@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:19:16 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/08/09 13:43:53 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/11 13:17:58 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void    rotate_left(t_var *data)
     // else if (data->player_pos.angle_in_radian < 0)
     //     data->player_pos.angle_in_radian += 6.28319;
     // else 
-
-    data->player_pos.angle_in_radian -= ROTATE_ANGLE;
+    data->player_pos.angle_in_radian -=  ROTATE_ANGLE;
     if (data->player_pos.angle_in_radian < 0)
-        data->player_pos.angle_in_radian = 6.28319;
+        data->player_pos.angle_in_radian = 2 * PI;
     
     // data->player_pos.save_x_inc = cos(data->player_pos.angle_in_radian) * data->player_pos.line_lenth;
     // data->player_pos.save_y_inc = sin(data->player_pos.angle_in_radian) * data->player_pos.line_lenth;
@@ -35,9 +34,9 @@ void    rotate_right(t_var *data)
     // else if (data->player_pos.angle_in_radian < 0)
     //     data->player_pos.angle_in_radian += 6.28319;
     // else 
-    // printf("p%d\n",data->player_pos.angle_in_radian);
+    // printf("p%d\n",(int)data->player_pos.angle_in_radian);
     data->player_pos.angle_in_radian += ROTATE_ANGLE;
-    if (data->player_pos.angle_in_radian > 6.28319)
+    if (data->player_pos.angle_in_radian > 2 * PI)
         data->player_pos.angle_in_radian = 0;
     
     // data->player_pos.save_x_inc = cos(data->player_pos.angle_in_radian) * data->player_pos.line_lenth;
