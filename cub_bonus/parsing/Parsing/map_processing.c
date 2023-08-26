@@ -12,7 +12,6 @@
 
 #include "../../cub3d_bonus.h"
 
-
 int	white_spaces(char *line)
 {
 	int	i;

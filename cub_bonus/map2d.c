@@ -6,12 +6,40 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:24:26 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/08/20 12:45:47 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:13:24 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "cub3d_bonus.h"
+
+
+void	player_fil(t_var *img, int y, int x)
+{
+	int i;
+	int j;
+
+	i = y - 20;
+	while (i < y)
+	{
+		j = x - 20;
+		while (j < x)
+		{
+			my_mlx_pixel_put(img, j , i , BROWN);
+			if (i == (y - 10) && j == (x - 10))
+            {
+				my_mlx_pixel_put(img, j , i , BLACK);
+
+                img->player_2d.x_2d = j;
+                img->player_2d.y_2d = i;
+				// printf("%d\n",(int)img->player_pos.player_x );
+				// printf("%d\n",(int)img->player_pos.player_y );
+            }
+			j++;
+		}
+		i++;
+	}
+}
 
 
 void	player_fill(t_var *img, int y, int x)
@@ -25,6 +53,7 @@ void	player_fill(t_var *img, int y, int x)
 		j = x - 50;
 		while (j < x)
 		{
+			// my_mlx_pixel_put(img, j , i , WHITE);
 			if (i == (y - 25) && j == (x - 25))
             {
                 img->player_pos.player_x = j;
@@ -37,16 +66,17 @@ void	player_fill(t_var *img, int y, int x)
 		i++;
 	}
 }
+
 void mini_map_pos(t_var *img, int y, int x)
 {
 
 	int i;
 	int j;
 
-	i = y - 40;
+	i = y - 20;
 	while (i < y)
 	{
-		j = x - 40;
+		j = x - 20;
 		while (j < x)
 		{
 			if (i == (y - 20) && j == (x - 20))
@@ -67,15 +97,15 @@ void	update_player_pos(t_var *img, int y, int x, int key)
 	int i;
 	int j;
 
-	i = y - 40;
+	i = y - 20;
 	while (i < y)
 	{
-		j = x - 40;
+		j = x - 20;
 		while (j < x)
 		{
-			if (j % 40 == 0 || i % 40 == 0)
-				my_mlx_pixel_put(img, j , i , WHITE);
-			else	
+			// if (j % 20 == 0 || i % 20 == 0)
+			// 	my_mlx_pixel_put(img, j , i , WHITE);
+			// else	
 				my_mlx_pixel_put(img, j , i , DARK_TURQUOISE);
 			j++;
 		}
@@ -88,14 +118,14 @@ void	fill_wall(t_var *img, int y, int x)
 	int i;
 	int j;
 	
-	i = y - 40;
+	i = y - 20;
 	while (i < y)
 	{
-		j = x - 40;
+		j = x - 20;
 		while (j  < x)
 		{
-			if (j % 40 == 0 || i % 40 == 0)
-				my_mlx_pixel_put(img, j , i , WHITE);
+			if (j % 20 == 0 || i % 20 == 0)
+				my_mlx_pixel_put(img, j , i , BLACK);
 			else
 				my_mlx_pixel_put(img, j , i, BLUE);
 			j++;
@@ -110,17 +140,17 @@ void	fill_ground(t_var *img, int y, int x)
 	int i ;
 	int j ;
 	
-	i = y - 40;
+	i = y - 20;
 
 	while (i < y)
 	{
-		j = x - 40;
+		j = x - 20;
 		while (j < x)
 		{
-			if (j % 40 == 0 || i % 40 == 0)
-				my_mlx_pixel_put(img, j , i , WHITE);
-			else
-				my_mlx_pixel_put(img, j , i , DARK_TURQUOISE);
+			// if (j % 20 == 0 || i % 20 == 0)
+			// 	my_mlx_pixel_put(img, j , i , BLACK);
+			// else
+				my_mlx_pixel_put(img, j , i , BROWN);
 			j++;
 		}
 		i++;
@@ -132,13 +162,13 @@ void	first_fill_ground(t_var *img, int y, int x)
 	int i ;
 	int j ;
 	
-	i = y - 40;
+	i = y - 20;
 	while (i < y)
 	{
-		j = x - 40;
+		j = x - 20;
 		while (j < x)
 		{
-			if (j % 40 == 0 || i % 40 == 0)
+			if (j % 20 == 0 || i % 20 == 0)
 				my_mlx_pixel_put(img, j , i , WHITE);
 			else
 				my_mlx_pixel_put(img, j , i , DARK_TURQUOISE);

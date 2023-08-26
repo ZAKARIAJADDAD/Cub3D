@@ -6,12 +6,11 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:04:00 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/20 12:46:33 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:05:31 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_bonus.h"
-
 
 t_map	*ft_lstnew_s(char *key, char *value)
 {

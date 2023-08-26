@@ -6,7 +6,7 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/08/20 12:49:59 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/08/26 23:12:45 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = 	main.c\
 		virtical_ray.c\
 		horizontal_ray.c\
 		rander_2dmap.c\
-		parsing/pars.c\
+		parsing/parsing.c\
 		parsing/Libft/ft_strcmp.c\
 		parsing/Libft/ft_strchr.c\
 		parsing/get_next_line/get_next_line.c\

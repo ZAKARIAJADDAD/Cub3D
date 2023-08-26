@@ -12,7 +12,6 @@
 
 #include "../../cub3d_bonus.h"
 
-
 int ft_error(char *s, int fd)
 {
     ft_putstr_fd(s, fd);

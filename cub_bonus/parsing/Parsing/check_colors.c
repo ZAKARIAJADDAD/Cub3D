@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/20 12:46:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:05:18 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    check_characters(char *s)
         free(ss[i]);
     }
     free(ss);
-    system("leaks cub3D");
+    //system("leaks cub3D");
 }
 
 void    check_colors(t_map *map)

@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/08/20 15:25:02 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:33:39 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 #define X_WIDTH 1200
 #define Y_HEIGHT 400
+# define BROWN	0x00E0E0E0
 # define BLACK 	0x00000000
 # define SKY	0x000080FF
 # define GROUND 0x00A0A0A0
@@ -78,6 +79,28 @@ typedef struct t_map
 	struct t_map	*next;
 }	t_map;
 
+typedef	struct  t_tex
+{
+
+	char		*add;
+	void	*north_wall;
+	void	*east_wall;
+	void	*west_wall;
+	void	*south_wall;
+
+	int textuer_x_width;
+	int textuer_y_hight;
+	double x_wall_pos;
+	double y_wall_pos;
+	double texture_x;
+	double texture_y;
+
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+
+}			 t_tex ;
+
 typedef struct  t_2d
 {	
 	double		ph;
@@ -123,8 +146,9 @@ typedef struct t_var
 	int			count;
 	char		**env2d;
 	t_map		*map;
+	t_tex		textuer;
 	t_img		xpm_img;
-	int 	test;
+	int 		test;
 
 	int 		mouse_x;
 	int 		mouse_y;
@@ -166,9 +190,17 @@ char			**ftt_split(t_var *data, int fd);
 char			*join_utils(char *s1);
 // mao2d
 
+
+// player
+void	player_map_position(t_var *data);
+
+////
+
+
 void			fill_wall(t_var *img, int y, int x);
 void			fill_ground(t_var *img, int y, int x);
 void			player_fill(t_var *img, int y, int x);
+void				player_fil(t_var *img, int y, int x);
 
 void			my_mlx_pixel_put(t_var *data, int x, int y, int color);
 void			update_player_pos(t_var *img, int x, int y, int key);
@@ -219,6 +251,13 @@ int	move_mouse(t_var *data);
 // animetion
 void    add_xpm(t_var *data);
 
+// /minimap
+void	mini_map(t_var *img);
+
+
+void	textuers(double x, double y, t_var *data);
+
+
 
 // 2dmap
 void    virtical_2d(t_var *data);
@@ -226,6 +265,12 @@ void    horizontal_2d(t_var *data);
 void    clac_2dplayer_distence(t_var *data);
 
 void	initlize_varibles(t_var *data);
+
+
+
+int	parsing(int ac, char **av, t_var *data);
+void	map_parsing(char *s, t_var **data);
+
 /*********************************************************************/
 /*                                 Parsing                           */
 /*********************************************************************/
@@ -241,7 +286,7 @@ void			map_process(t_var **data, char *line);
 void			ft_lstadd_back_s(t_map **head, t_map *new);
 t_map			*ft_lstnew_s(char *key, char *value);
 t_map			*ft_lstnew_s(char *key, char *value);
-void			map_parsing(char *s, t_var *data);
+// void			map_parsing(char *s, t_var *data);
 
 /*********************************************************************/
 /*                                 Parsing                           */
