@@ -6,14 +6,15 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/08/26 23:12:45 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/08/27 16:28:01 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = #-fsanitize=address -g3 #-Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -g3 #-Wall -Wextra -Werror
 SRCS = 	main.c\
 		map2d.c\
+		mouse_move.c\
 		player_movmentes.c\
 		help_functions.c\
 		rotation.c\

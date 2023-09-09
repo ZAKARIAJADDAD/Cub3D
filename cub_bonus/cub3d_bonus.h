@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/08/26 23:33:39 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/08 12:47:03 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@
 
 typedef struct t_player
 {
-
-
 	double 		distance;
 	double		pd;
 	double		pe;
@@ -119,8 +117,13 @@ typedef struct  t_2d
 
 typedef struct t_img
 {
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
 	int	width;
 	int hight;
+	int	width1;
+	int hight1;
 	void *ptr1;
    void *ptr2;
    void *ptr3;
@@ -217,6 +220,9 @@ void			move_left(t_var *data);
 
 void			rotate_left(t_var *data);
 void			rotate_right(t_var *data);
+
+void	draw_sky(t_var *data,int x, int start, int end);
+
 
 // draw line
 void			draw_line(t_var *data, int x_pos);
