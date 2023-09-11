@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:51:45 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/04 11:14:07 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:34:55 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	virtical_ray(t_var *data)
 				old_ys = ys;
 			if (old_xs > 0 && old_ys > 0 && old_xs < data->x_width && old_ys < data->y_height)
 			{
-				if (data->map2d[(int)old_ys / GRIDE_SIZE][(int)old_xs  / GRIDE_SIZE] != '1')
+				if (data->map2d[(int)old_ys / GRIDE_SIZE][(int)old_xs  / GRIDE_SIZE] == '0')
 				{
 					old_xs += xs;
 					old_ys += ys;

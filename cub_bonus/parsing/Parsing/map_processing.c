@@ -87,6 +87,8 @@ void	map_process(t_var **data, char *line)
 		line = get_next_line((*data)->fd);
 	}
 	(*data)->env2d = ft_split(line_mp, '\n');
+	if (!(*data)->env2d || !(*data)->env2d[0])
+		exit(ft_error("Error: Map not found!", 2));
 	free(line_mp);
 	map_validation(data);
 	player_position(data);

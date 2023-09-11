@@ -29,6 +29,8 @@ void	map_parsing(char *s, t_var **data)
 			return ;
 		}
 		check_map(&(*data));
+		
+
 	}
 	else
 		write(2, "Error: File name must include an extension.\n", 44);

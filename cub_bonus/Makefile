@@ -6,23 +6,30 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/08/27 16:28:01 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/09/11 12:42:20 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -fsanitize=address -g3 #-Wall -Wextra -Werror
+CFLAGS = #-fsanitize=address -g3 #-Wall -Wextra -Werror
+
+LMLX_MAC = -Lmlx -lmlx -framework OpenGL -framework AppKit 
+# LMLX_UNIX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 SRCS = 	main.c\
 		map2d.c\
 		mouse_move.c\
+		ray_casting.c\
+		textures_mapping.c\
 		player_movmentes.c\
 		help_functions.c\
 		rotation.c\
 		add_xpm.c\
+		parsing/Libft/ft_itoa.c\
 		rander_map.c\
 		virtical_ray.c\
 		horizontal_ray.c\
 		rander_2dmap.c\
+		get_color.c\
 		parsing/parsing.c\
 		parsing/Libft/ft_strcmp.c\
 		parsing/Libft/ft_strchr.c\
@@ -45,13 +52,14 @@ SRCS = 	main.c\
 		parsing/Parsing/check_colors.c\
 		parsing/Parsing/check_spaces.c\
 
+
 OBJ = $(SRCS:.c=.o)
 NAME = cub3d_bonus
 
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) $(CFLAGS)  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	
 %.o: %.c
 	$(CC) -Imlx -c $< -o $@

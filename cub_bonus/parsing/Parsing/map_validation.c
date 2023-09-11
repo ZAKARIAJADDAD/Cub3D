@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/26 23:11:16 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:00:21 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ void	fill_values_direc(char **sub, t_map **mp)
 	while (tmp)
 	{
 		if (!ft_strcmp(sub[0], tmp->key))
-			tmp->value = ft_strdup(sub[1]);
+		{
+			if (tmp->value)
+				free(tmp->value);
+			tmp->value = ft_strdup(ft_strtrim(sub[1], "\n \t"));
+		}
 		tmp = tmp->next;
 	}
 }
