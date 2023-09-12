@@ -12,8 +12,25 @@
 
 #include "../../cub3d_bonus.h"
 
-int ft_error(char *s, int fd)
+int	ft_error(char *s, int fd)
 {
-    ft_putstr_fd(s, fd);
-    return (1);
+	ft_putstr_fd(s, fd);
+	return (1);
+}
+
+void	fill_x_y_map(char *line, t_var **data)
+{
+	int	len;
+
+	len = ft_strlen(line);
+	if (len > (*data)->x_width)
+		(*data)->x_width = len * 50;
+}
+
+int	is_player(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E'
+		|| c == 'W')
+		return (1);
+	return (0);
 }

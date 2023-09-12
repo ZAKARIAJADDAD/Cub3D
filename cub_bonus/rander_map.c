@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 22:45:34 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/11 10:39:01 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:52:03 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ void	player_map_position(t_var *data)
 	}
 }
 
-int	first_rander_map2d(t_var *img)
-{
-	img->player_pos.map2d_y = 0;
-	while (img->map2d[img->player_pos.map2d_y])
-	{
-		img->player_pos.map2d_x = 0;
-		while (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x])
-		{
-			if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x] == 'P')
-				player_fill(img, (img->player_pos.map2d_y + 1) * 50,
-					(img->player_pos.map2d_x + 1) * 50);
-			img->player_pos.map2d_x++;
-		}
-		img->player_pos.map2d_y++;
-	}
-	return (0);
-}
+// int	first_rander_map2d(t_var *img)
+// {
+// 	img->player_pos.map2d_y = 0;
+// 	while (img->map2d[img->player_pos.map2d_y])
+// 	{
+// 		img->player_pos.map2d_x = 0;
+// 		while (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x])
+// 		{
+// 			if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x] == 'P')
+// 				player_fill(img, (img->player_pos.map2d_y + 1) * 50,
+// 					(img->player_pos.map2d_x + 1) * 50);
+// 			img->player_pos.map2d_x++;
+// 		}
+// 		img->player_pos.map2d_y++;
+// 	}
+// 	return (0);
+// }
 
 void	clac_player_distence(t_var *data)
 {

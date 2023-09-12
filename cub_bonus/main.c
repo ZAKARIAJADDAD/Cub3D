@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:38 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/11 13:21:10 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:34:27 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,6 @@ int	mouse_press(t_var *data)
 	return (0);
 }
 
-int	my_mlx_get_add(t_var *data, int x, int y)
-{
-	char	*dst;
-	
-	dst = data->textuer.add + (y * data->textuer.line_length + x * (data->textuer.bits_per_pixel / 8));
-	return(*(unsigned int*)dst);
-}
-
-void	my_mlx_pixel_put(t_var *data, int x, int y, int color)
-{
-	char	*dst;
-	if (x > 0 && y > 0 && x < data->x_screen && y < data->y_screen)
-	{
-		dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-		*(unsigned int*)dst = color;
-	}
-}
 
 void	find_y_inc(t_var *data, int x_pos)
 {
@@ -57,39 +40,6 @@ void	find_y_inc(t_var *data, int x_pos)
 	dy =  data->dda_data.projected_slice_height;
 	data->dda_data.steps = fabs(dy);
 	data->dda_data.y_inc = dy / data->dda_data.steps;
-}
-
-void	draw_line(t_var *data, int x_pos)
-{
-	int 		i;
-	int 		stps;
-	
-	i = 0;
-	data->dda_data.y_increament = 0;
-	
-	virtical_ray(data);
-	horizotal_ray(data);
-	clac_player_distence(data);
-	fix_distortion(data);
-	find_y_inc(data, x_pos);
-	draw_sky(data, x_pos , data->dda_data.start, data->dda_data.projected_slice_height);
-	
-	if (data->textuer.textuer_y_hight > data->dda_data.projected_slice_height)
-		stps = data->textuer.textuer_y_hight  / data->dda_data.projected_slice_height;
-	else
-		stps = data->dda_data.projected_slice_height /  data->textuer.textuer_y_hight;
-	while (i <= data->dda_data.steps)
-	{
-		data->dda_data.texture_color = 0;
-		if (data->player_pos.virtical_distance  < data->player_pos.horizontal_distance)
-        	virtical_mapping(data);
-		else
-        	horizontal_mapping(data);
-		data->dda_data.y_increament += data->dda_data.y_tex;
-		my_mlx_pixel_put(data, x_pos, data->dda_data.start, data->dda_data.texture_color);
-		data->dda_data.start++;
-		i++;
-	}
 }
 
 void	clac_projextion_distance(t_var *data)
@@ -110,52 +60,7 @@ void	draw_sky(t_var *data,int x, int start, int end)
 		my_mlx_pixel_put(data,x,i++,GROUND);
 }
 
-void	rander_minimap(t_var *img)
-{
-	img->player_pos.map2d_y = 0;
-	while (img->map2d[img->player_pos.map2d_y])
-	{
-		img->player_pos.map2d_x = 0;
-		while (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x])
-		{
-			if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x ] == '1')
-				fill_wall(img,(img->player_pos.map2d_y + 1) * 40,  (img->player_pos.map2d_x  + 1) * 40);
-			else if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x ] != '1')
-				fill_ground(img,  (img->player_pos.map2d_y + 1) * 40, (img->player_pos.map2d_x + 1) * 40);
-			img->player_pos.map2d_x++;
-		}
-		img->player_pos.map2d_y++;
-	}
-	my_mlx_pixel_put(img, img->player_2d.x_2d, img->player_2d.y_2d, BLACK);
-}
 
-void	player_view_filed(t_var *data)
-{
-	int i;
-	double steps;
-
-	i = 0;
-	clac_projextion_distance(data);
-	data->player_pos.ray_angle = data->player_pos.angle_in_radian;
-	steps = convert_dgree(60) / data->x_screen;
-	while (i < data->x_screen / 2)
-	{
-		data->player_pos.ray_angle -= steps;
-		if (data->player_pos.ray_angle < 0)
-			data->player_pos.ray_angle = 2 * PI;
-		i++;
-	}
-	i = 0;
-	while (i < data->x_screen)
-	{
-		if (data->player_pos.ray_angle > 2 * PI)
-			data->player_pos.ray_angle = 0;
-		data->player_pos.ray_angle += steps;
-		draw_line(data, i);
-		i++;
-	}
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
-}
 
 int move_player(int i, t_var *data)
 {
@@ -207,7 +112,14 @@ void	player_direction(t_var *data, char c)
 
 void	initlize_varibles(t_var *data)
 {
+	int i;
+	i = 0;
+
+	
  	data->map2d = data->env2d;
+	while (data->map2d[i])
+		i++;
+	data->y_height = i * 50;
 	data->player_pos.player_x = 0;
 	data->player_pos.horizontal_distance = 0;
 	data->player_pos.virtical_distance = 0;
@@ -225,51 +137,15 @@ void	initlize_varibles(t_var *data)
 	data->tmp2d_player_y = 0;
 	data->mouse_x = data->x_screen / 2;
 	data->mouse_y = data->y_screen / 2;
-	data->x_width = x_width(data->map2d);
-	data->y_height = y_height(data->map2d);
 	data->x_screen = 1000;
 	data->y_screen = 300;
+	data->x_width = 33 * 50;
 	data->old_mouse_x = 0;
 	data->old_mouse_y = 0;
 
 }
 
 
-void	mini_map(t_var *data)
-{
-	int i;
-	int k;
-	int player_posx;
-	int player_posy;
-	int x_pos;
-	int y_pos;
-
-	i = 0;
-	x_pos = data->player_pos.player_x - 100;
-	y_pos = data->player_pos.player_y - 100;
-	// printf("%d\n",(int)x_pos);
-	// printf("%d\n",(int)y_pos);
-	while (i <= 100)
-	{
-		k = 0;
-		x_pos =data->player_pos.player_x - 50;
-		while (k <= 100)
-		{
-			
-			if (x_pos == data->player_pos.player_x && y_pos == data->player_pos.player_y)
-				my_mlx_pixel_put(data, k, i, BLACK);
-			if (data->map2d[y_pos / 50][x_pos / 50] == '1')
-				my_mlx_pixel_put(data, k, i, GROUND);
-			else if (data->map2d[y_pos / 50 ][x_pos / 50] != '1')
-				my_mlx_pixel_put(data, k, i, DARK_TURQUOISE);
-			x_pos++;
-			k++;
-			
-		}
-		y_pos++;
-		i++;
-	}
-}
 
 
 void	initlize_mlx(t_var *data)
@@ -279,12 +155,10 @@ void	initlize_mlx(t_var *data)
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);	
 }
 
-
-
 void	raycasting(char **av, int ac)
 {
 	int fd;
-    t_var *img;
+	t_var *img;
 	
 	img = malloc(sizeof(t_var));
 	map_parsing(av[1], &img);

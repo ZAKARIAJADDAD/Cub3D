@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/11 11:47:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:54:02 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define BLUE 0x000000FF
 # define DARK_TURQUOISE 0x0000CED1
 # define PI 3.14159265358979323846
-# define PLAYER_SPEED 10
+# define PLAYER_SPEED 5
 # define LINE_LENTH 30
 # define GRIDE_SIZE 50
 # define TEXTURE_SIZE 50
@@ -129,7 +129,7 @@ typedef struct t_img
 
 }					t_img;
 
-typedef	struct t_ray
+typedef	struct t_vray
 {
 	double alpha_y;
 	double alpha_x;
@@ -139,11 +139,24 @@ typedef	struct t_ray
 	double xs;
 	double old_xs;
 	double old_ys;
-}		t_ray;
+}		t_vray;
+
+typedef	struct t_hray
+{
+	double alpha_y;
+	double alpha_x;
+	double dy;
+	double dx;
+	double ys;
+	double xs;
+	double old_xs;
+	double old_ys;
+}		t_hray;
 
 typedef struct t_var
 {
-	t_ray			ray_data;
+	t_vray			vray_data;
+	t_hray			hray_data;
 	t_map			*map;
 	t_tex			textuer;
 	t_tex			textuer1;
@@ -184,6 +197,7 @@ typedef struct t_var
 	char			**tmp_arry2;
 	void			*mlx;
 	char			**map2d;
+	char			*line_mp;
 	void			*mlx_win;
 	int				textures[TEXTURE_SIZE][TEXTURE_SIZE];
 }					t_var;
@@ -191,60 +205,48 @@ typedef struct t_var
 
 
 
-// textures
+/*********************************************************************/
+/*                                 Textuers                          */
+/*********************************************************************/
+
 void				textuers(double x, double y, t_var *data);
-void	load_texture(t_var *data);
+void				load_texture(t_var *data);
+void				virtical_mapping(t_var *data);
+void				horizontal_mapping(t_var *data);
 
+void				my_mlx_pixel_put(t_var *data, int x, int y, int color);
 
-char				**ft_split(char const *st, char c);
-char				**cpy(char const *st, char **str, char c);
-char				**sto(char const *st, char **str, char c);
-int					wdcount(char const *s2, char c, int i);
-int					x_width(char **p);
-int					y_height(char **p);
-char				*ft_strjoin_split(char *s1, char *s2);
-char				*ft_join(int fd);
-char				**ftt_split(t_var *data, int fd);
-char				*join_utils(char *s1);
-// mao2d
 
 // player
 void				player_map_position(t_var *data);
+void				player_direction(t_var *data, char c);
 
-////
+/*********************************************************************/
+/*                                 Movementes                        */
+/*********************************************************************/
 
-void				fill_wall(t_var *img, int y, int x);
-void				fill_ground(t_var *img, int y, int x);
-void				player_fill(t_var *img, int y, int x);
-void				player_fil(t_var *img, int y, int x);
-
-void				my_mlx_pixel_put(t_var *data, int x, int y, int color);
-void				update_player_pos(t_var *img, int x, int y, int key);
-
-void				first_fill_ground(t_var *img, int x, int y);
-
-// movmentes
 void				move_forward(t_var *data);
 void				move_back(t_var *data);
 void				move_right(t_var *data);
 void				move_left(t_var *data);
 
-// rotiation
+
+/*********************************************************************/
+/*                                 Rotitons	                         */
+/*********************************************************************/
 
 void				rotate_left(t_var *data);
 void				rotate_right(t_var *data);
 
-void				draw_sky(t_var *data, int x, int start, int end);
 
-// draw line
+
+void				draw_sky(t_var *data, int x, int start, int end);
 void				draw_line(t_var *data, int x_pos);
-// void			draw_line2(t_var *data);
-void				player_direction(t_var *data, char c);
-void				first_draw_line(t_var *data);
 void				horizotal_ray(t_var *data);
 void				virtical_ray(t_var *data);
 
 // rander map2d
+void				mini_map(t_var *img);
 int					first_rander_map2d(t_var *img);
 int					rander_map2d(t_var *img);
 void				clac_player_distence(t_var *data);
@@ -253,42 +255,43 @@ void				clac_player_distence(t_var *data);
 void				player_view_filed(t_var *data);
 
 double				convert_dgree(int degree);
-void				mini_map_pos(t_var *img, int y, int x);
 
 // filed of view ray cast
 void				horizotal_ray(t_var *data);
 void				virtical_ray(t_var *data);
 
-// bonus
 
 // mouse movementes
-// int					get_mouse_pos(int x, int y, t_var *data);
+
 void				left_side(t_var *data);
 void				right_side(t_var *data);
 int					move_mouse(t_var *data);
 
 
-// animetion
-void				add_xpm(t_var *data);
-void				rander_gun(t_var *data);
 
 // /minimap
-void				mini_map(t_var *img);
 
-void				textuers(double x, double y, t_var *data);
-void				virtical_mapping(t_var *data);
-void				horizontal_mapping(t_var *data);
+int	my_mlx_get_add(t_var *data, int x, int y);
+void	clac_projextion_distance(t_var *data);
+void	find_y_inc(t_var *data, int x_pos);
 void			    fix_distortion(t_var *data);
 
-// 2dmap
-void				virtical_2d(t_var *data);
-void				horizontal_2d(t_var *data);
-void				clac_2dplayer_distence(t_var *data);
+void		vir_ray_protiction(t_var *data);
+int			vir_while_conditions(t_var *data);
+int			vir_check_if_wall(t_var *data);
+int			vir_first_intersection(t_var *data);
+int			vir_find_first_point(t_var	*data);
+void		vir_ray_to_infinity(t_var	*data);
+void		virtical_ray(t_var	*data);
+void		initlize_varibles(t_var *data);
 
-void				initlize_varibles(t_var *data);
 
-int					parsing(int ac, char **av, t_var *data);
-void				map_parsing(char *s, t_var **data);
+void		hor_ray_protiction(t_var *data);
+int			hor_while_conditions(t_var *data);
+int			hor_check_if_wall(t_var *data);
+int			hor_first_intersection(t_var *data);
+int			hor_find_first_point(t_var	*data);
+void		hor_ray_to_infinity(t_var	*data);
 
 /*********************************************************************/
 /*                                 Parsing                           */
@@ -310,7 +313,11 @@ int					get_color_texture(t_tex *tex, int i, int j, int s_wall);
 void				get_image(t_var *data, t_tex *tex, char *path);
 int					get_colors(t_tex *tex, int x, int y);
 int					get_pos(double pos, int w);
-// void			map_parsing(char *s, t_var *data);
+int					is_player(char c);
+int					rest_of_map(char **line, t_var **data);
+void				fill_x_y_map(char *line, t_var **data);
+void				map_parsing(char *s, t_var **data);
+
 
 /*********************************************************************/
 /*                                 Parsing                           */

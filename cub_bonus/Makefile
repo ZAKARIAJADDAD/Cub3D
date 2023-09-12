@@ -6,33 +6,35 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/09/11 12:42:20 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/09/12 21:55:25 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = #-fsanitize=address -g3 #-Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -g3 #-Wall -Wextra -Werror
 
 LMLX_MAC = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 # LMLX_UNIX = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 SRCS = 	main.c\
-		map2d.c\
 		mouse_move.c\
+		filed_of_view.c\
+		mini_map.c\
+		mlx_put.c\
 		ray_casting.c\
 		textures_mapping.c\
 		player_movmentes.c\
-		help_functions.c\
 		rotation.c\
-		add_xpm.c\
 		parsing/Libft/ft_itoa.c\
 		rander_map.c\
 		virtical_ray.c\
+		virtical_ray2.c\
 		horizontal_ray.c\
-		rander_2dmap.c\
+		horizontal_ray2.c\
 		get_color.c\
 		parsing/parsing.c\
 		parsing/Libft/ft_strcmp.c\
 		parsing/Libft/ft_strchr.c\
+		parsing/Libft/ft_strrchr.c\
 		parsing/get_next_line/get_next_line.c\
 		parsing/Libft/ft_strjoin.c\
 		parsing/Libft/ft_substr.c\

@@ -6,52 +6,53 @@
 /*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/28 14:15:39 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/12 04:16:40 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_bonus.h"
 
-void    check_characters(char *s)
+void	check_characters(char *s, int i, int count)
 {
-    int     i;
-    int     count;
-    char    **ss;
+	char	**ss;
 
-    i = -1;
-    count = 0;
-    while(s[++i])
-    {
-        if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != '\n')
-            exit(ft_error("Error: Invalid RGB value1!\n", 2));
-        if (s[i] == ',')
-            count++;
-    }
-    if (count != 2)
-        exit(ft_error("Error: Invalid RGB value2!\n", 2));
-    ss = ft_split(s, ',');
-    i = -1;
-    while(ss[++i])
-    {
-        if (!ft_isdigit(ss[i][0]))
-            exit(ft_error("Error: Invalid RGB value3'!\n", 2));
-        count = ft_atoi(ss[i]);
-        if (count < 0 || count > 255)
-            exit(ft_error("Error: Invalid RGB value3!\n", 2));
-        free(ss[i]);
-    }
-    free(ss);
-    //system("leaks cub3D");
+	i = -1;
+	count = 0;
+	while (s[++i])
+	{
+		if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != '\n')
+			exit(ft_error("Error: Invalid RGB value1!\n", 2));
+		if (s[i] == ',')
+			count++;
+	}
+	if (count != 2)
+		exit(ft_error("Error: Invalid RGB value2!\n", 2));
+	ss = ft_split(s, ',');
+	i = -1;
+	while (ss[++i])
+	{
+		if (!ft_isdigit(ss[i][0]))
+			exit(ft_error("Error: Invalid RGB value3'!\n", 2));
+		count = ft_atoi(ss[i]);
+		if (count < 0 || count > 255)
+			exit(ft_error("Error: Invalid RGB value3!\n", 2));
+		free(ss[i]);
+	}
+	free(ss);
 }
 
-void    check_colors(t_map *map)
+void	check_colors(t_map *map)
 {
-    t_map   *tmp;
+	t_map	*tmp;
+	int		i;
+	int		count;
 
-    tmp = map->next->next->next->next;
-    while (tmp)
-    {
-        check_characters(tmp->value);
-        tmp = tmp->next;
-    }
+	i = -1;
+	count = 0;
+	tmp = map->next->next->next->next;
+	while (tmp)
+	{
+		check_characters(tmp->value, i, count);
+		tmp = tmp->next;
+	}
 }

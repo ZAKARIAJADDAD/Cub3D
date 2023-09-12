@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_spaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 01:34:01 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/26 23:05:22 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/12 04:17:32 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_spaces(char *s)
 	i = -1;
 	count = 0;
 	p = ft_strtrim(s, " 	");
-	while(p[++i])
+	while (p[++i])
 	{
 		if (p[i] == ' ' || p[i] == '	')
 			count++;

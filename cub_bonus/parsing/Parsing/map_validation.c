@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/11 16:00:21 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/12 04:05:02 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	fill_values_direc(char **sub, t_map **mp)
 		{
 			if (tmp->value)
 				free(tmp->value);
-			tmp->value = ft_strdup(ft_strtrim(sub[1], "\n \t"));
+			tmp->value = ft_strtrim(sub[1], "\n \t");
 		}
 		tmp = tmp->next;
 	}
@@ -105,8 +105,7 @@ void	check_map(t_var **data)
 	}
 	if (!check_first_argmts(data))
 		exit(ft_error("Error: invalid map directions!\n", 2));
-	// check_file_path((*data)->map);
+	check_file_path((*data)->map);
 	check_colors((*data)->map);
 	map_process(data, line);
-	free(line);
 }
