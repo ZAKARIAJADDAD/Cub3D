@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:17:39 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:30 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:35:39 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	hor_ray_protiction(t_var *data)
+void	hor_ray_protiction(t_2var *data)
 {
 	if (data->hray_data.old_xs < 0)
 		data->hray_data.old_xs = data->hray_data.xs;
@@ -20,7 +20,7 @@ void	hor_ray_protiction(t_var *data)
 		data->hray_data.old_ys = data->hray_data.ys;
 }
 
-int	hor_while_conditions(t_var *data)
+int	hor_while_conditions(t_2var *data)
 {
 	hor_ray_protiction(data);
 	if (data->hray_data.old_xs > 0 && data->hray_data.old_ys > 0 \

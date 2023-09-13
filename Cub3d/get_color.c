@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:09:14 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:13 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:35:55 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_color_texture(t_tex *tex, int i, int j, int s_wall)
+int	get_color_texture(t_2tex *tex, int i, int j, int s_wall)
 {
 	char	*color;
 	int		x;
@@ -25,7 +25,7 @@ int	get_color_texture(t_tex *tex, int i, int j, int s_wall)
 	return (*(int *)color);
 }
 
-void	get_image(t_var *data, t_tex *tex, char *path)
+void	get_image(t_2var *data, t_2tex *tex, char *path)
 {
 	tex->texture_ptr = mlx_xpm_file_to_image(data->mlx, path, \
 	&tex->textuer_x_width, &tex->textuer_y_hight);
@@ -35,7 +35,7 @@ void	get_image(t_var *data, t_tex *tex, char *path)
 	&tex->bits_per_pixel, &tex->line_length, &tex->endian);
 }
 
-int	get_colors(t_tex *tex, int x, int y)
+int	get_colors(t_2tex *tex, int x, int y)
 {
 	char	*dst;
 

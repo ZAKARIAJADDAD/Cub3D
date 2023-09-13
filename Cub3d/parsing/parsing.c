@@ -6,20 +6,20 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:26:43 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:15 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:47:34 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	map_parsing(char *s, t_var **data)
+void	map_parsing(char *s, t_2var **data)
 {
 	char	*new_s;
 
 	new_s = ft_strrchr(s, '.');
 	if (new_s && !ft_strcmp(++new_s, "cub"))
 	{
-		*data = malloc(sizeof(t_var));
+		*data = malloc(sizeof(t_2var));
 		if (!(*data))
 			return ;
 		(*data)->fd = 0;

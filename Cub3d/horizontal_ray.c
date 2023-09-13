@@ -6,19 +6,19 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:53:23 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:28 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:35:27 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	hor_ray_to_infinity(t_var	*data)
+void	hor_ray_to_infinity(t_2var	*data)
 {
 	data->player_pos.x_horizontal_line_end = INT_MAX - 1;
 	data->player_pos.y_horizontal_line_end = INT_MAX - 1;
 }
 
-int	hor_find_first_point(t_var	*data)
+int	hor_find_first_point(t_2var	*data)
 {
 	if (sin(data->player_pos.ray_angle) == 0 \
 	|| cos(data->player_pos.ray_angle) == 0)
@@ -42,7 +42,7 @@ int	hor_find_first_point(t_var	*data)
 	return (0);
 }
 
-int	hor_first_intersection(t_var *data)
+int	hor_first_intersection(t_2var *data)
 {
 	hor_ray_to_infinity(data);
 	if (hor_find_first_point(data))
@@ -64,7 +64,7 @@ int	hor_first_intersection(t_var *data)
 	return (0);
 }
 
-int	hor_check_if_wall(t_var *data)
+int	hor_check_if_wall(t_2var *data)
 {
 	if (data->map2d[(int)data->hray_data.old_ys / GRIDE_SIZE] \
 	[(int)data->hray_data.old_xs / GRIDE_SIZE] != '1' && \
@@ -85,7 +85,7 @@ int	hor_check_if_wall(t_var *data)
 	return (0);
 }
 
-void	horizotal_ray(t_var *data)
+void	horizotal_ray(t_2var *data)
 {
 	if (hor_first_intersection(data))
 		return ;

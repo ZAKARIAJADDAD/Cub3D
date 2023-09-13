@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 22:45:34 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:55 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:33:34 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	player_map_position(t_var *data)
+void	player_map_position(t_2var *data)
 {
 	int	x;
 	int	y;
@@ -36,7 +36,7 @@ void	player_map_position(t_var *data)
 	}
 }
 
-void	clac_player_distence(t_var *data)
+void	clac_player_distence(t_2var *data)
 {
 	data->player_pos.horizontal_distance = sqrt(pow((data->player_pos.player_x
 					- data->player_pos.x_horizontal_line_end), 2)
@@ -61,7 +61,7 @@ void	clac_player_distence(t_var *data)
 	}
 }
 
-int	rander_map2d(t_var *data)
+int	rander_map2d(t_2var *data)
 {
 	player_view_filed(data);
 	return (0);

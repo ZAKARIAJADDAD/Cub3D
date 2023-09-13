@@ -18,7 +18,7 @@ int	ft_error(char *s, int fd)
 	return (1);
 }
 
-void	fill_x_y_map(char *line, t_var **data)
+void	fill_x_y_map(char *line, t_2var **data)
 {
 	int	len;
 

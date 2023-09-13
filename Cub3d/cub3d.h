@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:59:24 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:52:48 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define GRIDE_SIZE 50
 # define TEXTURE_SIZE 50
 
-typedef struct t_player
+typedef struct t_2player
 {
 	int				map2d_x;
 	int				map2d_y;
@@ -70,16 +70,16 @@ typedef struct t_player
 	double			x_line_end;
 	double			y_line_end;
 	double			angle_in_radian;
-}					t_player;
+}					t_2player;
 
-typedef struct t_map
+typedef struct t_2map
 {
 	char			*key;
 	char			*value;
-	struct t_map	*next;
-}					t_map;
+	struct t_2map	*next;
+}					t_2map;
 
-typedef struct t_tex
+typedef struct t_2tex
 {
 	double			x_wall_pos;
 	double			y_wall_pos;
@@ -98,9 +98,9 @@ typedef struct t_tex
 	void			*texture_ptr;
 	char			*buffer;
 
-}					t_tex;
+}					t_2tex;
 
-typedef struct t_img
+typedef struct t_2img
 {
 	double			start;
 	double 			steps;
@@ -111,9 +111,9 @@ typedef struct t_img
 	double			projected_slice_height;
 	unsigned int	texture_color;
 
-}					t_img;
+}					t_2img;
 
-typedef	struct t_vray
+typedef	struct t_2vray
 {
 	double alpha_y;
 	double alpha_x;
@@ -123,9 +123,9 @@ typedef	struct t_vray
 	double xs;
 	double old_xs;
 	double old_ys;
-}		t_vray;
+}		t_2vray;
 
-typedef	struct t_hray
+typedef	struct t_2hray
 {
 	double alpha_y;
 	double alpha_x;
@@ -135,22 +135,22 @@ typedef	struct t_hray
 	double xs;
 	double old_xs;
 	double old_ys;
-}		t_hray;
+}		t_2hray;
 
-typedef struct t_var
+typedef struct t_2var
 {
 	double			x_screen;
 	double			y_screen;
 	int				x_width;
 	int				y_height;
-	t_vray			vray_data;
-	t_hray			hray_data;
-	t_map			*map;
-	t_tex			textuer;
-	t_tex			textuer1;
-	t_tex			textuer2;
-	t_tex			textuer3;
-	t_img			dda_data;
+	t_2vray			vray_data;
+	t_2hray			hray_data;
+	t_2map			*map;
+	t_2tex			textuer;
+	t_2tex			textuer1;
+	t_2tex			textuer2;
+	t_2tex			textuer3;
+	t_2img			dda_data;
 	int				old_mouse_x;
 	int				old_mouse_y;
 	int				fd;
@@ -172,7 +172,7 @@ typedef struct t_var
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
-	t_player		player_pos;
+	t_2player		player_pos;
 	char			**tmp_arry;
 	char			**tmp_arry2;
 	void			*mlx;
@@ -180,7 +180,7 @@ typedef struct t_var
 	char			*line_mp;
 	void			*mlx_win;
 	int				textures[TEXTURE_SIZE][TEXTURE_SIZE];
-}					t_var;
+}					t_2var;
 
 
 
@@ -189,94 +189,91 @@ typedef struct t_var
 /*                                 Textuers                          */
 /*********************************************************************/
 
-void				textuers(double x, double y, t_var *data);
-void				load_texture(t_var *data);
-void				virtical_mapping(t_var *data);
-void				horizontal_mapping(t_var *data);
+void				textuers(double x, double y, t_2var *data);
+void				load_texture(t_2var *data);
+void				virtical_mapping(t_2var *data);
+void				horizontal_mapping(t_2var *data);
 
-void				my_mlx_pixel_put(t_var *data, int x, int y, int color);
+void				my_mlx_pixel_put(t_2var *data, int x, int y, int color);
 
 
 // player
-void				player_map_position(t_var *data);
-void				player_direction(t_var *data, char c);
+void				player_map_position(t_2var *data);
+void				player_direction(t_2var *data, char c);
 
 /*********************************************************************/
 /*                                 Movementes                        */
 /*********************************************************************/
 
-void				move_forward(t_var *data);
-void				move_back(t_var *data);
-void				move_right(t_var *data);
-void				move_left(t_var *data);
+void				move_forward(t_2var *data);
+void				move_back(t_2var *data);
+void				move_right(t_2var *data);
+void				move_left(t_2var *data);
 
 
 /*********************************************************************/
 /*                                 Rotitons	                         */
 /*********************************************************************/
 
-void				rotate_left(t_var *data);
-void				rotate_right(t_var *data);
+void				rotate_left(t_2var *data);
+void				rotate_right(t_2var *data);
 
 
 
-void				draw_sky(t_var *data, int x, int start, int end);
-void				draw_line(t_var *data, int x_pos);
-void				horizotal_ray(t_var *data);
-void				virtical_ray(t_var *data);
+void				draw_sky(t_2var *data, int x, int start, int end);
+void				draw_line(t_2var *data, int x_pos);
+void				horizotal_ray(t_2var *data);
+void				virtical_ray(t_2var *data);
 
 // rander map2d
-void				mini_map(t_var *img);
-int					first_rander_map2d(t_var *img);
-int					rander_map2d(t_var *img);
-void				clac_player_distence(t_var *data);
+void				clac_player_distence(t_2var *data);
 
 // files of  view
-void				player_view_filed(t_var *data);
+void				player_view_filed(t_2var *data);
 
 double				convert_dgree(int degree);
 
 // filed of view ray cast
-void				horizotal_ray(t_var *data);
-void				virtical_ray(t_var *data);
+void				horizotal_ray(t_2var *data);
+void				virtical_ray(t_2var *data);
 
 
 // mouse movementes
 
-void				left_side(t_var *data);
-void				right_side(t_var *data);
-int					move_mouse(t_var *data);
+void				left_side(t_2var *data);
+void				right_side(t_2var *data);
+int					move_mouse(t_2var *data);
 
 
 
 // /minimap
 
 
-void				destroy_fun(t_var *data);
-int					mouse_press(t_var *data);
-void				key_events(t_var *data, int i);
-int					move_player(int i, t_var *data);
-void				initialize_varibles(t_var *data);
-int					my_mlx_get_add(t_var *data, int x, int y);
-void				clac_projextion_distance(t_var *data);
-void				find_y_inc(t_var *data, int x_pos);
-void				fix_distortion(t_var *data);
+void				destroy_fun(t_2var *data);
+int					mouse_press(t_2var *data);
+void				key_events(t_2var *data, int i);
+int					move_player(int i, t_2var *data);
+void				initialize_varibles(t_2var *data);
+int					my_mlx_get_add(t_2var *data, int x, int y);
+void				clac_projextion_distance(t_2var *data);
+void				find_y_inc(t_2var *data, int x_pos);
+void				fix_distortion(t_2var *data2);
 
-void				vir_ray_protiction(t_var *data);
-int					vir_while_conditions(t_var *data);
-int					vir_check_if_wall(t_var *data);
-int					vir_first_intersection(t_var *data);
-int					vir_find_first_point(t_var	*data);
-void				vir_ray_to_infinity(t_var	*data);
-void				virtical_ray(t_var	*data);
-void				initlize_varibles(t_var *data);
+void				vir_ray_protiction(t_2var *data);
+int					vir_while_conditions(t_2var *dat2a);
+int					vir_check_if_wall(t_2var *data);
+int					vir_first_intersection(t_2var *data);
+int					vir_find_first_point(t_2var	*data);
+void				vir_ray_to_infinity(t_2var	*dat2a);
+void				virtical_ray(t_2var	*data);
+void				initlize_varibles(t_2var *data2);
 
-void				hor_ray_protiction(t_var *data);
-int					hor_while_conditions(t_var *data);
-int					hor_check_if_wall(t_var *data);
-int					hor_first_intersection(t_var *data);
-int					hor_find_first_point(t_var	*data);
-void				hor_ray_to_infinity(t_var	*data);
+void				hor_ray_protiction(t_2var *data);
+int					hor_while_conditions(t_2var *dat2a);
+int					hor_check_if_wall(t_2var *data);
+int					hor_first_intersection(t_2var *data);
+int					hor_find_first_point(t_2var	*data);
+void				hor_ray_to_infinity(t_2var	*data);
 
 /*********************************************************************/
 /*                                 Parsing                           */
@@ -284,24 +281,24 @@ void				hor_ray_to_infinity(t_var	*data);
 
 int					ft_error(char *s, int fd);
 int					is_player(char c);
-void				player_position(t_var **data);
-void				check_map(t_var **data);
-void				check_colors(t_map *map);
+void				player_position(t_2var **dat2a);
+void				check_map(t_2var **data);
+void				check_colors(t_2map *map);
 void				check_spaces(char *s);
-void				check_file_path(t_map *map);
-void				map_process(t_var **data, char *line);
-void				ft_lstadd_back_s(t_map **head, t_map *new);
-t_map				*ft_lstnew_s(char *key, char *value);
-t_map				*ft_lstnew_s(char *key, char *value);
-void				load_texture(t_var *data);
-int					get_color_texture(t_tex *tex, int i, int j, int s_wall);
-void				get_image(t_var *data, t_tex *tex, char *path);
-int					get_colors(t_tex *tex, int x, int y);
+void				check_file_path(t_2map *map);
+void				map_process(t_2var **data, char *line);
+void				ft_lstadd_back_s(t_2map **head, t_2map *new);
+t_2map				*ft_lstnew_s(char *key, char *value);
+t_2map				*ft_lstnew_s(char *key, char *valu2e);
+void				load_texture(t_2var *data);
+int					get_color_texture(t_2tex *tex, int i, int j, int s_wall);
+void				get_image(t_2var *data, t_2tex *tex, char *path);
+int					get_colors(t_2tex *tex, int x, int y);
 int					get_pos(double pos, int w);
 int					is_player(char c);
-int					rest_of_map(char **line, t_var **data);
-void				fill_x_y_map(char *line, t_var **data);
-void				map_parsing(char *s, t_var **data);
+int					rest_of_map(char **line, t_2var **data);
+void				fill_x_y_map(char *line, t_2var **data);
+void				map_parsing(char *s, t_2var **data);
 
 
 /*********************************************************************/

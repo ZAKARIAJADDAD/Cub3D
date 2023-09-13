@@ -6,17 +6,17 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:04:00 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:02 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:48:53 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-t_map	*ft_lstnew_s(char *key, char *value)
+t_2map	*ft_lstnew_s(char *key, char *value)
 {
-	t_map	*elt;
+	t_2map	*elt;
 
-	elt = (t_map *)malloc(sizeof(*elt));
+	elt = (t_2map *)malloc(sizeof(*elt));
 	if (elt == NULL)
 		return (NULL);
 	if (value != NULL)

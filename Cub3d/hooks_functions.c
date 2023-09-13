@@ -6,26 +6,26 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:45:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:25 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:36:07 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	destroy_fun(t_var *data)
+void	destroy_fun(t_2var *data)
 {
 	// free(data);
 	exit (3);
 }
 
-int	mouse_press(t_var *data)
+int	mouse_press(t_2var *data)
 {
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	exit(0);
 	return (0);
 }
 
-void	key_events(t_var *data, int i)
+void	key_events(t_2var *data, int i)
 {
 	if (i == 65307)
 		destroy_fun(data);
@@ -43,7 +43,7 @@ void	key_events(t_var *data, int i)
 		rotate_left(data);
 }
 
-int	move_player(int i, t_var *data)
+int	move_player(int i, t_2var *data)
 {
 	data->tmp_player_x = data->player_pos.player_x;
 	data->tmp_player_y = data->player_pos.player_y;

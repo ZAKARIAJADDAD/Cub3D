@@ -12,7 +12,7 @@
 
 #include "../../cub3d.h"
 
-void	player_position(t_var **data)
+void	player_position(t_2var **data)
 {
 	int	i;
 	int	j;
@@ -46,9 +46,9 @@ int	dash_position(char *s)
 	return (42);
 }
 
-void	check_path_xpm(t_map *map)
+void	check_path_xpm(t_2map *map)
 {
-	t_map	*tmp;
+	t_2map	*tmp;
 	char	*p;
 	int		i;
 
@@ -65,9 +65,9 @@ void	check_path_xpm(t_map *map)
 	}
 }
 
-void	check_file_path(t_map *map)
+void	check_file_path(t_2map *map)
 {
-	t_map	*tmp;
+	t_2map	*tmp;
 	int		fd1;
 	int		count;
 	char	*line;
@@ -88,7 +88,7 @@ void	check_file_path(t_map *map)
 	}
 }
 
-int	rest_of_map(char **line, t_var **data)
+int	rest_of_map(char **line, t_2var **data)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 12:52:39 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:51:14 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	check_characters(char *s, int i, int count)
 	free(ss);
 }
 
-void	check_colors(t_map *map)
+void	check_colors(t_2map *map)
 {
-	t_map	*tmp;
+	t_2map	*tmp;
 	int		i;
 	int		count;
 

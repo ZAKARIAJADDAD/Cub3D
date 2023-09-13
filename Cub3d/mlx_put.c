@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:31:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:47 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:31:38 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	my_mlx_get_add(t_var *data, int x, int y)
+int	my_mlx_get_add(t_2var *data, int x, int y)
 {
 	char	*dst;
 
@@ -21,7 +21,7 @@ int	my_mlx_get_add(t_var *data, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-void	my_mlx_pixel_put(t_var *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_2var *data, int x, int y, int color)
 {
 	char	*dst;
 

@@ -39,7 +39,7 @@ int	invalid_map(char **map, int i, int j)
 	return (0);
 }
 
-void	inside_map_verfication(t_var **data, int i, int j)
+void	inside_map_verfication(t_2var **data, int i, int j)
 {
 	while ((*data)->env2d[(*data)->i][++(*data)->j])
 	{
@@ -61,7 +61,7 @@ void	inside_map_verfication(t_var **data, int i, int j)
 	}
 }
 
-void	map_validation(t_var **data)
+void	map_validation(t_2var **data)
 {
 	(*data)->i = -1;
 	(*data)->count = 0;
@@ -74,7 +74,7 @@ void	map_validation(t_var **data)
 		exit(ft_error("Error: Invalid map3!\n", 2));
 }
 
-void	map_process(t_var **data, char *line)
+void	map_process(t_2var **data, char *line)
 {
 	(*data)->y_height = 0;
 	(*data)->line_mp = NULL;

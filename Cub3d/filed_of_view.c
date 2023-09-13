@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:33:11 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:07 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:31:26 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	player_view_filed(t_var *data)
+void	player_view_filed(t_2var *data)
 {
 	int i;
 	double steps;
@@ -40,7 +40,7 @@ void	player_view_filed(t_var *data)
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 
-void	draw_line(t_var *data, int x_pos)
+void	draw_line(t_2var *data, int x_pos)
 {
 	int 		i;
 	int 		stps;

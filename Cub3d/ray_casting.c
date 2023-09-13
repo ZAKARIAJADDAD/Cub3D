@@ -6,19 +6,19 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:01:02 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:51:58 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:32:02 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	clac_projextion_distance(t_var *data)
+void	clac_projextion_distance(t_2var *data)
 {
 	data->distance_to_projection_plane = \
 	tan(convert_dgree(30)) * ((int)data->x_screen/ 2);
 }
 
-void	find_y_inc(t_var *data, int x_pos)
+void	find_y_inc(t_2var *data, int x_pos)
 {
 	double	wall_center;
 	double	start;
@@ -34,7 +34,7 @@ void	find_y_inc(t_var *data, int x_pos)
 	data->dda_data.y_inc = dy / data->dda_data.steps;
 }
 
-void	fix_distortion(t_var	*data)
+void	fix_distortion(t_2var	*data)
 {
 	if (data->player_pos.ray_angle < data->player_pos.angle_in_radian)
 		data->player_pos.distance = data->player_pos.distance * \
@@ -48,7 +48,7 @@ void	fix_distortion(t_var	*data)
 		data->dda_data.projected_slice_height = 0;
 }
 
-void	virtical_mapping(t_var	*data)
+void	virtical_mapping(t_2var	*data)
 {
 	int	k;
 
@@ -72,7 +72,7 @@ void	virtical_mapping(t_var	*data)
 	}
 }
 
-void	horizontal_mapping(t_var *data)
+void	horizontal_mapping(t_2var *data)
 {
 	int	k;
 

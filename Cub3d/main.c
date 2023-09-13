@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:38 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:54:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:31:11 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	initialize_mlx(t_var *data)
+void	initialize_mlx(t_2var *data)
 {
 	data->mlx_win = \
 	mlx_new_window(data->mlx, data->x_screen, data->y_screen, "map");
@@ -24,9 +24,9 @@ void	initialize_mlx(t_var *data)
 
 void	raycasting(char **av)
 {
-	t_var	*img;
+	t_2var	*img;
 
-	img = malloc(sizeof(t_var));
+	img = malloc(sizeof(t_2var));
 	map_parsing(av[1], &img);
 	img->mlx = mlx_init();
 	initialize_varibles(img);

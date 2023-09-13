@@ -6,13 +6,14 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 12:53:06 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:48:14 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	fill_directions(t_var **data)
+
+void	fill_directions(t_2var **data)
 {
 	char	*arr[6];
 	int		i;
@@ -29,9 +30,9 @@ void	fill_directions(t_var **data)
 		ft_lstadd_back_s(&(*data)->map, ft_lstnew_s(arr[i++], NULL));
 }
 
-int	check_first_argmts(t_var **data)
+int	check_first_argmts(t_2var **data)
 {
-	t_map	*tmp;
+	t_2map	*tmp;
 
 	(*data)->i = 0;
 	tmp = (*data)->map;
@@ -46,9 +47,9 @@ int	check_first_argmts(t_var **data)
 	return (1);
 }
 
-void	fill_values_direc(char **sub, t_map **mp)
+void	fill_values_direc(char **sub, t_2map **mp)
 {
-	t_map	*tmp;
+	t_2map	*tmp;
 
 	tmp = *mp;
 	while (tmp)
@@ -63,7 +64,7 @@ void	fill_values_direc(char **sub, t_map **mp)
 	}
 }
 
-void	check_direc(char **subl, t_var **mp)
+void	check_direc(char **subl, t_2var **mp)
 {
 	if (check_first_argmts(mp))
 		return ;
@@ -83,7 +84,7 @@ void	check_direc(char **subl, t_var **mp)
 		exit(ft_error("Error: Unrecognized map data!\n", 2));
 }
 
-void	check_map(t_var **data)
+void	check_map(t_2var **data)
 {
 	char	*line;
 	char	**sub_line;

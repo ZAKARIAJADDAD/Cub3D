@@ -6,19 +6,19 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:51:45 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 12:52:05 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:33:49 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	vir_ray_to_infinity(t_var	*data)
+void	vir_ray_to_infinity(t_2var	*data)
 {
 	data->player_pos.x_virtical_line_end = INT_MAX;
 	data->player_pos.y_virtical_line_end = INT_MAX;
 }
 
-int	vir_find_first_point(t_var	*data)
+int	vir_find_first_point(t_2var	*data)
 {
 	if (sin(data->player_pos.ray_angle) == 0 || \
 		cos(data->player_pos.ray_angle) == 0)
@@ -42,7 +42,7 @@ int	vir_find_first_point(t_var	*data)
 	return (0);
 }
 
-int	vir_first_intersection(t_var *data)
+int	vir_first_intersection(t_2var *data)
 {
 	vir_ray_to_infinity(data);
 	if (vir_find_first_point(data))
@@ -63,7 +63,7 @@ int	vir_first_intersection(t_var *data)
 	return (0);
 }
 
-int	vir_check_if_wall(t_var *data)
+int	vir_check_if_wall(t_2var *data)
 {
 	if (data->map2d[(int)data->vray_data.old_ys / GRIDE_SIZE] \
 	[(int)data->vray_data.old_xs / GRIDE_SIZE] != '1')
@@ -82,7 +82,7 @@ int	vir_check_if_wall(t_var *data)
 	return (0);
 }
 
-void	virtical_ray(t_var	*data)
+void	virtical_ray(t_2var	*data)
 {
 	if (vir_first_intersection(data))
 		return ;

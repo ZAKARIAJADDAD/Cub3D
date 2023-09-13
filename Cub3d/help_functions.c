@@ -6,13 +6,13 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:16:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 13:02:31 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:33:19 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_sky(t_var *data, int x, int start, int end)
+void	draw_sky(t_2var *data, int x, int start, int end)
 {
 	int	i;
 	int	j;
@@ -30,7 +30,7 @@ double	convert_dgree(int degree)
 	return (degree * (PI / 180));
 }
 
-void	player_direction(t_var *data, char c)
+void	player_direction(t_2var *data, char c)
 {
 	if (c == 'E')
 		data->player_pos.angle_in_radian = convert_dgree(0);
@@ -42,7 +42,7 @@ void	player_direction(t_var *data, char c)
 		data->player_pos.angle_in_radian = convert_dgree(270);
 }
 
-void	find_y_height(t_var *data)
+void	find_y_height(t_2var *data)
 {
 	int	i;
 
@@ -53,7 +53,7 @@ void	find_y_height(t_var *data)
 	data->y_height = i * 50;
 }
 
-void	initialize_varibles(t_var *data)
+void	initialize_varibles(t_2var *data)
 {
 	find_y_height(data);
 	data->player_pos.player_x = 0;
