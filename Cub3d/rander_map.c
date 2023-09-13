@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 22:45:34 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 14:33:34 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:32:41 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	clac_player_distence(t_2var *data)
 
 int	rander_map2d(t_2var *data)
 {
+	
 	player_view_filed(data);
 	return (0);
 }

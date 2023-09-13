@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 14:48:14 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:58:40 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ void	check_map(t_2var **data)
 	if (!check_first_argmts(data))
 		exit(ft_error("Error: invalid map directions!\n", 2));
 	check_file_path((*data)->map);
-	check_colors((*data)->map);
+	check_colors((*data)->map, data);
 	map_process(data, line);
 }

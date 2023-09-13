@@ -6,11 +6,42 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:09:14 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 14:35:55 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:43:01 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+// void	store(t_2var *data, char c)
+// {
+	
+// }
+
+// int	ft_hex(unsigned int nb, t_2var *data)
+// {
+// 	int		count;
+// 	char 	*upx;
+// 	int i = 0;
+	
+// 	upx = "0123456789ABCDEF";
+// 	data->save = NULL;
+// 	if (nb >= 16)
+// 	{
+// 		ft_hex(nb / 16, data);
+// 		ft_hex(nb % 16, data);
+// 	}
+// 	if (nb < 16)
+// 		store(data, upx[nb % 16]);
+// }
+
+// int rgb_converte(t_2var *data)
+// {
+// 	// int store = ft_hex(255)
+// 	data->save = malloc(8);
+// 	data->save[8] = '\0';
+// 	printf("%x\n",ft_hex(255, data));
+// 	return 0;	
+// }
 
 int	get_color_texture(t_2tex *tex, int i, int j, int s_wall)
 {

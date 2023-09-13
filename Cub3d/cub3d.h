@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 15:06:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:14:41 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,13 @@ typedef	struct t_2hray
 
 typedef struct t_2var
 {
+	int floor_r;
+	int floor_g;
+	int floor_b;
+	int ceiling_r;
+	int ceiling_g;
+	int ceiling_b;
+	char *save;
 	double			x_screen;
 	double			y_screen;
 	int				x_width;
@@ -220,7 +227,8 @@ int					rander_map2d(t_2var *data);
 void				rotate_left(t_2var *data);
 void				rotate_right(t_2var *data);
 
-
+ int 		rgb_converte(t_2var *data);
+	
 
 void				draw_sky(t_2var *data, int x, int start, int end);
 void				draw_line(t_2var *data, int x_pos);
@@ -285,7 +293,7 @@ int					ft_error(char *s, int fd);
 int					is_player(char c);
 void				player_position(t_2var **dat2a);
 void				check_map(t_2var **data);
-void				check_colors(t_2map *map);
+void				check_colors(t_2map *map, t_2var **data);
 void				check_spaces(char *s);
 void				check_file_path(t_2map *map);
 void				map_process(t_2var **data, char *line);
