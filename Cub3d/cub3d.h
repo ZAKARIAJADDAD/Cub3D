@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 14:52:48 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:06:19 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,8 @@ void				move_left(t_2var *data);
 /*                                 Rotitons	                         */
 /*********************************************************************/
 
+
+int					rander_map2d(t_2var *data);
 void				rotate_left(t_2var *data);
 void				rotate_right(t_2var *data);
 

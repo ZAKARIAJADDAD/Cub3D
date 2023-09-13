@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/12 04:05:02 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/13 14:54:06 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_bonus.h"
+
 
 void	fill_directions(t_var **data)
 {

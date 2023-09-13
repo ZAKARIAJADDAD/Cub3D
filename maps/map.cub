@@ -1,7 +1,7 @@
 NO ./TEXTURES/50_tex(1).xpm
-SO wallpaperflare.com_wallpaper.xpm
+SO ./TEXTURES/50_tex(1).xpm
 EA ./TEXTURES/50_tex(1).xpm
-WE wallpaperflare.com_wallpaper.xpm
+WE ./TEXTURES/50_tex(1).xpm
 
 F 220,100,0
 C 255,30,0

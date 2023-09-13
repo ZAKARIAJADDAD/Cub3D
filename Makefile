@@ -6,7 +6,7 @@
 #    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/09/13 13:00:04 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/09/13 14:45:55 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS	= 	Cub3d/main.c\
 			Cub3d/player_movmentes.c\
 			Cub3d/rotation.c\
 			Cub3d/help_functions.c\
-			Cub3d/parsing/Libft/ft_itoa.c\
 			Cub3d/rander_map.c\
 			Cub3d/virtical_ray.c\
 			Cub3d/virtical_ray2.c\
@@ -34,6 +33,7 @@ SRCS	= 	Cub3d/main.c\
 			Cub3d/horizontal_ray2.c\
 			Cub3d/get_color.c\
 			Cub3d/hooks_functions.c\
+			Cub3d/parsing/Libft/ft_itoa.c\
 			Cub3d/parsing/parsing.c\
 			Cub3d/parsing/Libft/ft_strcmp.c\
 			Cub3d/parsing/Libft/ft_strchr.c\

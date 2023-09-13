@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:38 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 14:31:11 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:05:42 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	raycasting(char **av)
 	load_texture(img);
 	mlx_hook(img->mlx_win, 17, 0, mouse_press, img);
 	mlx_hook(img->mlx_win, 2, (1L << 0), &move_player, img);
+	mlx_loop_hook(img->mlx, rander_map2d, img);
 	mlx_loop(img->mlx);
 	free(img);
 	free(img->mlx);
