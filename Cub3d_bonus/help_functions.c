@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:16:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 13:03:13 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:46:16 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	draw_sky(t_var *data, int x, int start, int end)
 	int	j;
 
 	j = 0;
-	while (j < start)
-		my_mlx_pixel_put(data, x, j++, CYAN);
+	while (j <= start)
+		my_mlx_pixel_put(data, x, j++, data->ceiling_color);
 	i = start + end;
-	while (i < data->y_screen)
-		my_mlx_pixel_put(data, x, i++, GROUND);
+	while (i <= data->y_screen)
+		my_mlx_pixel_put(data, x, i++, data->floor_color);
 }
 
 double	convert_dgree(int degree)
@@ -71,8 +71,8 @@ void	initialize_varibles(t_var *data)
 	data->store_sin = 0;
 	data->mouse_x = data->x_screen / 2;
 	data->mouse_y = data->y_screen / 2;
-	data->x_screen = 1000;
-	data->y_screen = 300;
+	data->x_screen = 1500;
+	data->y_screen = 500;
 	data->x_width = 33 * 50;
 	data->old_mouse_x = 0;
 	data->old_mouse_y = 0;

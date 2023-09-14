@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:38 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 20:43:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:14:56 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	raycasting(char **av)
 	img->mlx = mlx_init();
 	initialize_varibles(img);
 	initialize_mlx(img);
-	// rgb_converte(img);./
-	// printf("%d\n",img->r);
+	rgb_converte(img);
 	player_map_position(img);
 	player_view_filed(img);
 	load_texture(img);

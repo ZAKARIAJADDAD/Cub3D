@@ -6,7 +6,7 @@
 /*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:03:26 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/11 02:04:54 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/13 23:40:16 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include<fcntl.h>
 # include<string.h>
 # include<stdio.h>
-#include <stdint.h>
+# include <stdint.h>
 # include "../Libft/libft.h"
 
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 14:53:33 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:30:36 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,42 +119,49 @@ typedef struct t_2d
 typedef struct t_img
 {
 	double			start;
-	double 			steps;
-	double 			y_inc;
+	double			steps;
+	double			y_inc;
 	double			tex_increment;
 	double			y_tex;
 	float			y_increament;
 	double			projected_slice_height;
 	unsigned int	texture_color;
-
 }					t_img;
 
-typedef	struct t_vray
+typedef struct t_vray
 {
-	double alpha_y;
-	double alpha_x;
-	double dy;
-	double dx;
-	double ys;
-	double xs;
-	double old_xs;
-	double old_ys;
+	double			alpha_y;
+	double			alpha_x;
+	double			dy;
+	double			dx;
+	double			ys;
+	double			xs;
+	double			old_xs;
+	double			old_ys;
 }		t_vray;
 
-typedef	struct t_hray
+typedef struct t_hray
 {
-	double alpha_y;
-	double alpha_x;
-	double dy;
-	double dx;
-	double ys;
-	double xs;
-	double old_xs;
-	double old_ys;
+	double			alpha_y;
+	double			alpha_x;
+	double			dy;
+	double			dx;
+	double			ys;
+	double			xs;
+	double			old_xs;
+	double			old_ys;
 }		t_hray;
 
 typedef struct t_var
 {
+	int				floor_r;
+	int				floor_g;
+	int				floor_b;
+	int				ceiling_r;
+	int				ceiling_g;
+	int				ceiling_b;
+	int				ceiling_color;
+	int				floor_color;
 	t_vray			vray_data;
 	t_hray			hray_data;
 	t_map			*map;
@@ -163,7 +170,6 @@ typedef struct t_var
 	t_tex			textuer2;
 	t_tex			textuer3;
 	t_img			dda_data;
-	pthread_mutex_t	*lock;
 	int				old_mouse_x;
 	int				old_mouse_y;
 	int				fd;
@@ -200,78 +206,38 @@ typedef struct t_var
 	char			*line_mp;
 	void			*mlx_win;
 	int				textures[TEXTURE_SIZE][TEXTURE_SIZE];
+	int				rgb_n[6];
 }					t_var;
-
-
-
-
-/*********************************************************************/
-/*                                 Textuers                          */
-/*********************************************************************/
 
 void				textuers(double x, double y, t_var *data);
 void				load_texture(t_var *data);
 void				virtical_mapping(t_var *data);
 void				horizontal_mapping(t_var *data);
-
 void				my_mlx_pixel_put(t_var *data, int x, int y, int color);
-
-
-// player
-void				player_map_position(t_var *data);
-void				player_direction(t_var *data, char c);
-
-/*********************************************************************/
-/*                                 Movementes                        */
-/*********************************************************************/
-
 void				move_forward(t_var *data);
 void				move_back(t_var *data);
 void				move_right(t_var *data);
 void				move_left(t_var *data);
-
-
-/*********************************************************************/
-/*                                 Rotitons	                         */
-/*********************************************************************/
-
+void				player_map_position(t_var *data);
+void				player_direction(t_var *data, char c);
 void				rotate_left(t_var *data);
 void				rotate_right(t_var *data);
-
-
-
+void				rgb_converte(t_var *data);
+int					get_color(int red, int green, int blue);
 void				draw_sky(t_var *data, int x, int start, int end);
 void				draw_line(t_var *data, int x_pos);
 void				horizotal_ray(t_var *data);
 void				virtical_ray(t_var *data);
-
-// rander map2d
 void				mini_map(t_var *img);
-int					first_rander_map2d(t_var *img);
 int					rander_map2d(t_var *img);
 void				clac_player_distence(t_var *data);
-
-// files of  view
 void				player_view_filed(t_var *data);
-
 double				convert_dgree(int degree);
-
-// filed of view ray cast
 void				horizotal_ray(t_var *data);
 void				virtical_ray(t_var *data);
-
-
-// mouse movementes
-
 void				left_side(t_var *data);
 void				right_side(t_var *data);
 int					move_mouse(t_var *data);
-
-
-
-// /minimap
-
-
 void				destroy_fun(t_var *data);
 int					mouse_press(t_var *data);
 void				key_events(t_var *data, int i);
@@ -281,7 +247,6 @@ int					my_mlx_get_add(t_var *data, int x, int y);
 void				clac_projextion_distance(t_var *data);
 void				find_y_inc(t_var *data, int x_pos);
 void				fix_distortion(t_var *data);
-
 void				vir_ray_protiction(t_var *data);
 int					vir_while_conditions(t_var *data);
 int					vir_check_if_wall(t_var *data);
@@ -290,23 +255,20 @@ int					vir_find_first_point(t_var	*data);
 void				vir_ray_to_infinity(t_var	*data);
 void				virtical_ray(t_var	*data);
 void				initlize_varibles(t_var *data);
-
 void				hor_ray_protiction(t_var *data);
 int					hor_while_conditions(t_var *data);
 int					hor_check_if_wall(t_var *data);
 int					hor_first_intersection(t_var *data);
 int					hor_find_first_point(t_var	*data);
 void				hor_ray_to_infinity(t_var	*data);
-
 /*********************************************************************/
 /*                                 Parsing                           */
 /*********************************************************************/
-
 int					ft_error(char *s, int fd);
 int					is_player(char c);
 void				player_position(t_var **data);
 void				check_map(t_var **data);
-void				check_colors(t_map *map);
+void				check_colors(t_var **data);
 void				check_spaces(char *s);
 void				check_file_path(t_map *map);
 void				map_process(t_var **data, char *line);
@@ -322,8 +284,6 @@ int					is_player(char c);
 int					rest_of_map(char **line, t_var **data);
 void				fill_x_y_map(char *line, t_var **data);
 void				map_parsing(char *s, t_var **data);
-
-
 /*********************************************************************/
 /*                                 Parsing                           */
 /*********************************************************************/

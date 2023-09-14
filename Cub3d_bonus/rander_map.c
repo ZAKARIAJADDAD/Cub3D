@@ -6,11 +6,24 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 22:45:34 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 11:16:06 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:20:23 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+int	get_color(int red, int green, int blue)
+{
+	return ((red << 16) | (green << 8) | blue);
+}
+
+void	rgb_converte(t_var *data)
+{
+	data->ceiling_color = \
+	get_color(data->rgb_n[0], data->rgb_n[1], data->rgb_n[2]);
+	data->floor_color = \
+	get_color(data->rgb_n[3], data->rgb_n[4], data->rgb_n[5]);
+}
 
 void	player_map_position(t_var *data)
 {

@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:01:02 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 11:53:10 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:18:22 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	clac_projextion_distance(t_var *data)
 {
 	data->distance_to_projection_plane = \
-	tan(convert_dgree(30)) * ((int)data->x_screen/ 2);
+	tan(convert_dgree(30)) * ((int)data->x_screen / 2);
 }
 
 void	find_y_inc(t_var *data, int x_pos)

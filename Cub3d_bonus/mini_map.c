@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:30:06 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/12 20:49:30 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:17:06 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 void	mini_map(t_var *data)
 {
-	int i;
-	int k;
-	int player_posx;
-	int player_posy;
-	int x_pos;
-	int y_pos;
+	int	i;
+	int	k;
+	int	player_posx;
+	int	player_posy;
+	int	x_pos;
+	int	y_pos;
 
 	i = 0;
 	x_pos = data->player_pos.player_x - 100;

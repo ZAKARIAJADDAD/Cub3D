@@ -6,7 +6,7 @@
 /*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 09:52:23 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/05 16:53:02 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/13 23:45:39 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,5 @@ char	*ft_strtrim(char const *s1, char const *setr)
 		i++;
 	}
 	res[i] = '\0';
-	//free(s1);
 	return (res);
 }

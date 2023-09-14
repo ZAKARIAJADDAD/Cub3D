@@ -6,7 +6,7 @@
 /*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 23:52:19 by zjaddad           #+#    #+#             */
-/*   Updated: 2022/11/11 18:38:44 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/13 23:39:23 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	while (s2[j])
 		pr[i++] = s2[j++];
-	
 	pr[i] = '\0';
 	return (pr);
 }

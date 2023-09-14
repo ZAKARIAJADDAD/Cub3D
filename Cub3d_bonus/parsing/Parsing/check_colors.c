@@ -6,53 +6,60 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 14:54:50 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:10:32 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_bonus.h"
 
-void	check_characters(char *s, int i, int count)
+void	check_characters(char *s, t_var **data)
 {
-	char	**ss;
+	char		**ss;
+	static int	n;
 
-	i = -1;
-	count = 0;
-	while (s[++i])
-	{
-		if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != '\n')
-			exit(ft_error("Error: Invalid RGB value1!\n", 2));
-		if (s[i] == ',')
-			count++;
-	}
-	if (count != 2)
-		exit(ft_error("Error: Invalid RGB value2!\n", 2));
+	(*data)->i = -1;
+	(*data)->count = 0;
+	if (n == 0)
+		n = -1;
+	if (n >= 6)
+		exit(ft_error("Error: Invalid RGB value!\n", 2));
 	ss = ft_split(s, ',');
-	i = -1;
-	while (ss[++i])
+	(*data)->i = -1;
+	while (ss[++(*data)->i] && n < 6)
 	{
-		if (!ft_isdigit(ss[i][0]))
-			exit(ft_error("Error: Invalid RGB value3'!\n", 2));
-		count = ft_atoi(ss[i]);
-		if (count < 0 || count > 255)
-			exit(ft_error("Error: Invalid RGB value3!\n", 2));
-		free(ss[i]);
+		if (!ft_isdigit(ss[(*data)->i][0]))
+			exit(ft_error("Error: Invalid RGB value!\n", 2));
+		(*data)->count = ft_atoi(ss[(*data)->i]);
+		(*data)->rgb_n[++n] = (*data)->count;
+		if ((*data)->count < 0 || (*data)->count > 255)
+			exit(ft_error("Error: Invalid RGB value!\n", 2));
+		free(ss[(*data)->i]);
 	}
 	free(ss);
 }
 
-void	check_colors(t_map *map)
+void	check_colors(t_var **data)
 {
-	t_map	*tmp;
-	int		i;
-	int		count;
+	t_map		*tmp;
+	char		*s;
+	int			i;
 
-	i = -1;
-	count = 0;
-	tmp = map->next->next->next->next;
+	tmp = (*data)->map->next->next->next->next;
 	while (tmp)
 	{
-		check_characters(tmp->value, i, count);
+		s = tmp->value;
+		i = -1;
+		(*data)->count = 0;
+		while (s[++i])
+		{
+			if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != '\n')
+				exit(ft_error("Error: Invalid RGB value!\n", 2));
+			if (s[i] == ',')
+				(*data)->count++;
+		}
+		if ((*data)->count != 2)
+			exit(ft_error("Error: Invalid RGB value!\n", 2));
+		check_characters(tmp->value, data);
 		tmp = tmp->next;
 	}
 }

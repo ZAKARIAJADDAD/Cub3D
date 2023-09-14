@@ -6,7 +6,7 @@
 /*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:02:44 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/08/10 11:24:32 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/13 23:40:04 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char	*read_line(int fd, char *sv)
 		sv = ft_new_strjoin(sv, buf);
 	}
 	free(buf);
-
 	return (sv);
 }
 

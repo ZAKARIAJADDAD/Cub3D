@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:16:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 14:33:19 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:21:47 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	draw_sky(t_2var *data, int x, int start, int end)
 	int	j;
 
 	j = 0;
-	while (j < start)
-		my_mlx_pixel_put(data, x, j++, CYAN);
+	while (j <= start)
+		my_mlx_pixel_put(data, x, j++, data->ceiling_color);
 	i = start + end;
-	while (i < data->y_screen)
-		my_mlx_pixel_put(data, x, i++, GROUND);
+	while (i <= data->y_screen)
+		my_mlx_pixel_put(data, x, i++, data->floor_color);
 }
 
 double	convert_dgree(int degree)

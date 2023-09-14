@@ -6,42 +6,11 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:09:14 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/13 20:43:01 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:34:32 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// void	store(t_2var *data, char c)
-// {
-	
-// }
-
-// int	ft_hex(unsigned int nb, t_2var *data)
-// {
-// 	int		count;
-// 	char 	*upx;
-// 	int i = 0;
-	
-// 	upx = "0123456789ABCDEF";
-// 	data->save = NULL;
-// 	if (nb >= 16)
-// 	{
-// 		ft_hex(nb / 16, data);
-// 		ft_hex(nb % 16, data);
-// 	}
-// 	if (nb < 16)
-// 		store(data, upx[nb % 16]);
-// }
-
-// int rgb_converte(t_2var *data)
-// {
-// 	// int store = ft_hex(255)
-// 	data->save = malloc(8);
-// 	data->save[8] = '\0';
-// 	printf("%x\n",ft_hex(255, data));
-// 	return 0;	
-// }
 
 int	get_color_texture(t_2tex *tex, int i, int j, int s_wall)
 {
@@ -58,8 +27,7 @@ int	get_color_texture(t_2tex *tex, int i, int j, int s_wall)
 
 void	get_image(t_2var *data, t_2tex *tex, char *path)
 {
-	tex->texture_ptr = mlx_xpm_file_to_image(data->mlx, path, \
-	&tex->textuer_x_width, &tex->textuer_y_hight);
+	tex->texture_ptr = mlx_xpm_file_to_image(data->mlx, path, \ &tex->textuer_x_width, &tex->textuer_y_hight);
 	if (!tex->texture_ptr)
 		exit(ft_error("Error: in img\n", 2));
 	tex->buffer = mlx_get_data_addr(tex->texture_ptr, \
@@ -70,9 +38,11 @@ int	get_colors(t_2tex *tex, int x, int y)
 {
 	char	*dst;
 
-	if (x >= 0 && x < tex->textuer_x_width && y >= 0 && y < tex->textuer_y_hight)
+	if (x >= 0 && x < tex->textuer_x_width \
+	&& y >= 0 && y < tex->textuer_y_hight)
 	{
-		dst = tex->buffer + (y * tex->line_length + x * (tex->bits_per_pixel / 8));
+		dst = tex->buffer + \
+		(y * tex->line_length + x * (tex->bits_per_pixel / 8));
 		return (*(unsigned int *)dst);
 	}
 	return (0);
@@ -81,6 +51,7 @@ int	get_colors(t_2tex *tex, int x, int y)
 int	get_pos(double pos, int w)
 {
 	int	x;
+
 	x = ((pos / 50) - (int)(pos / 50)) * w;
 	return (x);
 }
