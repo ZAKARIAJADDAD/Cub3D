@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:45:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 17:27:57 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:41:42 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	destroy_fun(t_2var *data)
 {
-	exit (3);
+	exit (2);
 }
 
 int	mouse_press(t_2var *data)
