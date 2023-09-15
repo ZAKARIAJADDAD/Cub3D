@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 23:30:36 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:33:31 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,13 @@ typedef struct t_tex
 
 }					t_tex;
 
-typedef struct t_2d
+typedef struct t_minimap
 {
-	double			ph;
-	double			pv;
-	double			x_2d;
-	double			y_2d;
-	double			virtical_x2d_end;
-	double			virtical_y2d_end;
-	double			horizontal_x2d_end;
-	double			horizontal_y2d_end;
-	double			calc_xend;
-	double			calc_yend;
-	double			ray_lenth;
-
-}					t_2d;
+	int				y;
+	int				x;
+	int				x_pos;
+	int				y_pos;
+}					t_minimap;
 
 typedef struct t_img
 {
@@ -162,6 +154,7 @@ typedef struct t_var
 	int				ceiling_b;
 	int				ceiling_color;
 	int				floor_color;
+	t_minimap		mini_map;
 	t_vray			vray_data;
 	t_hray			hray_data;
 	t_map			*map;
@@ -198,7 +191,6 @@ typedef struct t_var
 	int				line_length;
 	int				endian;
 	t_player		player_pos;
-	t_2d			player_2d;
 	char			**tmp_arry;
 	char			**tmp_arry2;
 	void			*mlx;
