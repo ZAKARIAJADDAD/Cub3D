@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:33:11 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/13 17:26:38 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:45:55 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	draw_line(t_var *data, int x_pos)
 		// 	i = 0;
 		// 	data->dda_data.y_tex += fabs(data->dda_data.projected_slice_height) * data->textuer.textuer_y_hight  ;
 		// }
+		if (i == INT32_MAX)
+			break ;
 		if (data->player_pos.virtical_distance < \
 			data->player_pos.horizontal_distance)
 			virtical_mapping(data);

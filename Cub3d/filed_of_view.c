@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:33:11 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 23:12:15 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:45:44 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	draw_line(t_2var *data, int x_pos)
 	ray_calc(data, x_pos);
 	while (i <= data->dda_data.steps)
 	{
+	
 		data->dda_data.texture_color = 0;
 		if (data->player_pos.virtical_distance < \
 			data->player_pos.horizontal_distance)
