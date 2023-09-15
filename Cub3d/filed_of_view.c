@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:33:11 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 23:45:44 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:05:32 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,24 @@ void	draw_line(t_2var *data, int x_pos)
 	int	i;
 
 	i = 0;
-	data->dda_data.y_increament = 0;
 	ray_calc(data, x_pos);
-	while (i <= data->dda_data.steps)
+	if (data->dda_data.steps > data->y_screen)
 	{
-	
-		data->dda_data.texture_color = 0;
+		data->dda_data.steps = data->y_screen;
+		data->dda_data.start = 0;
+	}
+	i = data->dda_data.start;
+	while (i <= data->dda_data.steps + data->dda_data.start)
+	{
+		data->dda_data.y_tex = i - \
+		(data->y_screen - data->dda_data.projected_slice_height) / 2;
 		if (data->player_pos.virtical_distance < \
 			data->player_pos.horizontal_distance)
 			virtical_mapping(data);
 		else
 			horizontal_mapping(data);
-		data->dda_data.y_increament += data->dda_data.y_tex;
-		my_mlx_pixel_put(data, x_pos, data->dda_data.start, \
+		my_mlx_pixel_put(data, x_pos, i, \
 			data->dda_data.texture_color);
-		data->dda_data.start++;
 		i++;
 	}
 }

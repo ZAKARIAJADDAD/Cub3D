@@ -6,61 +6,54 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:30:06 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 23:17:06 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 19:37:42 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-// void	rander_minimap(t_var *img)
-// {
-// 	img->player_pos.map2d_y = 0;
-// 	while (img->map2d[img->player_pos.map2d_y])
-// 	{
-// 		img->player_pos.map2d_x = 0;
-// 		while (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x])
-// 		{
-// 			if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x ] == '1')
-// 				fill_wall(img,(img->player_pos.map2d_y + 1) * 40,  (img->player_pos.map2d_x  + 1) * 40);
-// 			else if (img->map2d[img->player_pos.map2d_y][img->player_pos.map2d_x ] != '1')
-// 				fill_ground(img,  (img->player_pos.map2d_y + 1) * 40, (img->player_pos.map2d_x + 1) * 40);
-// 			img->player_pos.map2d_x++;
-// 		}
-// 		img->player_pos.map2d_y++;
-// 	}
-// 	my_mlx_pixel_put(img, img->player_2d.x_2d, img->player_2d.y_2d, BLACK);
-// }
+void	fill_player(t_var *data)
+{
+	my_mlx_pixel_put(data, data->mini_map.x - 1, data->mini_map.y - 1, BLACK);
+	my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y - 1, BLACK);
+	my_mlx_pixel_put(data, data->mini_map.x - 1, data->mini_map.y, BLACK);
+	my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y, BLACK);
+}
+
+void	pixel_put(t_var *data)
+{
+	if (data->mini_map.x == 50 && data->mini_map.y == 50)
+		fill_player(data);
+	if (data->mini_map.y == 1 || data->mini_map.y == 2 \
+	|| data->mini_map.y == 100 || data->mini_map.y == 99 \
+	|| data->mini_map.x == 1 || data->mini_map.x == 2 || \
+	data->mini_map.x == 200 || data->mini_map.x == 199)
+		my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y, WHITE);
+	else if (data->map2d[data->mini_map.y_pos / 50] \
+	[data->mini_map.x_pos / 50] == '1')
+		my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y, GROUND);
+	else if (data->map2d[data->mini_map.y_pos / 50] \
+	[data->mini_map.x_pos / 50] != '1')
+		my_mlx_pixel_put(data, data->mini_map.x, \
+		data->mini_map.y, DARK_TURQUOISE);
+}
 
 void	mini_map(t_var *data)
 {
-	int	i;
-	int	k;
-	int	player_posx;
-	int	player_posy;
-	int	x_pos;
-	int	y_pos;
-
-	i = 0;
-	x_pos = data->player_pos.player_x - 100;
-	y_pos = data->player_pos.player_y - 100;
-	while (i <= 100)
+	data->mini_map.y = 0;
+	data->mini_map.x_pos = data->player_pos.player_x - 50;
+	data->mini_map.y_pos = data->player_pos.player_y - 50;
+	while (data->mini_map.y <= 100)
 	{
-		k = 0;
-		x_pos =data->player_pos.player_x - 50;
-		while (k <= 100)
+		data->mini_map.x = 0;
+		data->mini_map.x_pos = data->player_pos.player_x - 50;
+		while (data->mini_map.x <= 200)
 		{
-			
-			if (x_pos == data->player_pos.player_x && y_pos == data->player_pos.player_y)
-				my_mlx_pixel_put(data, k, i, BLACK);
-			if (data->map2d[y_pos / 50][x_pos / 50] == '1')
-				my_mlx_pixel_put(data, k, i, GROUND);
-			else if (data->map2d[y_pos / 50 ][x_pos / 50] != '1')
-				my_mlx_pixel_put(data, k, i, DARK_TURQUOISE);
-			x_pos++;
-			k++;
-			
+			pixel_put(data);
+			data->mini_map.x_pos++;
+			data->mini_map.x++;
 		}
-		y_pos++;
-		i++;
+		data->mini_map.y_pos++;
+		data->mini_map.y++;
 	}
 }

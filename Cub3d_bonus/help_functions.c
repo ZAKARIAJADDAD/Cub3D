@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:16:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 22:46:16 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:23:07 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	initialize_varibles(t_var *data)
 	data->store_sin = 0;
 	data->mouse_x = data->x_screen / 2;
 	data->mouse_y = data->y_screen / 2;
-	data->x_screen = 1500;
-	data->y_screen = 500;
+	data->x_screen = 1000;
+	data->y_screen = 300;
 	data->x_width = 33 * 50;
 	data->old_mouse_x = 0;
 	data->old_mouse_y = 0;
