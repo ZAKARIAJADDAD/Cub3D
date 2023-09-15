@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:23:32 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/14 23:18:08 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:20:51 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	move_mouse(t_var	*data)
 		right_side(data);
 	mlx_clear_window(data->mlx, data->mlx_win);
 	rander_map2d(data);
-	// mini_map(data);
+	mini_map(data);
 	return (1);
 }

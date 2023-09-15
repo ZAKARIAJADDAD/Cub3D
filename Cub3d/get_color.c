@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:09:14 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/14 23:34:32 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:21:42 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	get_color_texture(t_2tex *tex, int i, int j, int s_wall)
 
 void	get_image(t_2var *data, t_2tex *tex, char *path)
 {
-	tex->texture_ptr = mlx_xpm_file_to_image(data->mlx, path, \ &tex->textuer_x_width, &tex->textuer_y_hight);
+	tex->texture_ptr = mlx_xpm_file_to_image(data->mlx, path, \
+	&tex->textuer_x_width, &tex->textuer_y_hight);
 	if (!tex->texture_ptr)
 		exit(ft_error("Error: in img\n", 2));
 	tex->buffer = mlx_get_data_addr(tex->texture_ptr, \
