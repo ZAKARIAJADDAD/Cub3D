@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/14 23:06:14 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:55:58 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_characters(char *s, t_2var **data)
 	{
 		if (!ft_isdigit(ss[(*data)->i][0]))
 			exit(ft_error("Error: Invalid RGB value!\n", 2));
-		(*data)->count = ft_atoi(ss[(*data)->i]);
+		(*data)->count = ft_atoi_m(ss[(*data)->i]);
 		(*data)->rgb_n[++n] = (*data)->count;
 		if ((*data)->count < 0 || (*data)->count > 255)
 			exit(ft_error("Error: Invalid RGB value!\n", 2));

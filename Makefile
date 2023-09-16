@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
+#    By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/09/13 18:52:58 by zael-wad         ###   ########.fr        #
+#    Updated: 2023/09/16 20:25:41 by zjaddad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS = cub3d_bonus
 
 CC		=	clang
 
-CFLAGS	=	-fsanitize=address #-Wall -Wextra -Werror
+CFLAGS	=	-fsanitize=address -g3 -Wall -Wextra -Werror
 
 SRCS	= 	Cub3d/main.c\
 			Cub3d/filed_of_view.c\

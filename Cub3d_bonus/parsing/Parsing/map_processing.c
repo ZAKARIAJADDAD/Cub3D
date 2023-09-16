@@ -17,8 +17,6 @@ int	white_spaces(char *line)
 	int	i;
 
 	i = 0;
-	if (line[0] == '\n' || line[0] == ' ' || line[0] == '\t')
-		return (0);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\t'

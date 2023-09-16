@@ -17,8 +17,6 @@ int	white_spaces(char *line)
 	int	i;
 
 	i = 0;
-	if (line[0] == '\n' || line[0] == ' ' || line[0] == '\t')
-		return (0);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\t'
@@ -57,7 +55,7 @@ void	inside_map_verfication(t_2var **data, int i, int j)
 			|| (*data)->env2d[(*data)->i][(*data)->j] == 'e' || \
 			is_player((*data)->env2d[(*data)->i][(*data)->j])) \
 			&& invalid_map((*data)->env2d, (*data)->i, (*data)->j))
-			exit(ft_error("Error: Invalid map2!\n", 2));
+			exit(ft_error("Error: Invalid map222!\n", 2));
 	}
 }
 

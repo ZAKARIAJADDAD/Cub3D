@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/15 15:33:31 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:04:51 by zjaddad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,8 @@ typedef struct t_var
 	void			*mlx_win;
 	int				textures[TEXTURE_SIZE][TEXTURE_SIZE];
 	int				rgb_n[6];
+	long			result;
+	int				sign;
 }					t_var;
 
 void				textuers(double x, double y, t_var *data);
@@ -276,6 +278,7 @@ int					is_player(char c);
 int					rest_of_map(char **line, t_var **data);
 void				fill_x_y_map(char *line, t_var **data);
 void				map_parsing(char *s, t_var **data);
+int					ft_atoi_m(const char *s);
 /*********************************************************************/
 /*                                 Parsing                           */
 /*********************************************************************/
