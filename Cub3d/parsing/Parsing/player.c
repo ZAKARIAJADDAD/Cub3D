@@ -58,6 +58,8 @@ void	check_path_xpm(t_2map *map)
 	{
 		p = tmp->value;
 		p = ft_strrchr(p, '.');
+		if (!p)
+			exit(ft_error("Error : Empty path image!\n", 2));
 		if (ft_strncmp(p, ".xpm", 4) || dash_position(tmp->value) == 0)
 			exit(ft_error("Error : xpm extension missed!\n", 2));
 		i++;
