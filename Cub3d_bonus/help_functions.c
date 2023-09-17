@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:16:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/16 00:17:40 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/17 18:50:17 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ void	initialize_varibles(t_var *data)
 	data->store_sin = 0;
 	data->mouse_x = data->x_screen / 2;
 	data->mouse_y = data->y_screen / 2;
-	data->x_screen = 1000;
-	data->y_screen = 500;
-	data->x_width = 33 * 50;
+	data->x_screen = 1200;
+	data->y_screen = 450;
 	data->old_mouse_x = 0;
 	data->old_mouse_y = 0;
 }

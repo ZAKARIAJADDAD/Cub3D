@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:45:47 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/15 19:41:42 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/16 16:20:02 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	destroy_fun(t_2var *data)
 {
+	mlx_destroy_window(data->mlx, data->mlx_win);
 	exit (2);
 }
 

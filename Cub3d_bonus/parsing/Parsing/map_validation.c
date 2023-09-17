@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:17 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/16 22:02:03 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/17 18:36:48 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	fill_values_direc(char **sub, t_map **mp)
 		if (!ft_strcmp(sub[0], tmp->key))
 		{
 			if (tmp->value)
-				free(tmp->value);
+				exit(ft_error("Error: Duplicate map data!\n", 2));
 			tmp->value = ft_strtrim(sub[1], "\n \t");
 		}
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:30:06 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/15 19:37:42 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:46:11 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	pixel_put(t_var *data)
 	data->mini_map.x == 200 || data->mini_map.x == 199)
 		my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y, WHITE);
 	else if (data->map2d[data->mini_map.y_pos / 50] \
-	[data->mini_map.x_pos / 50] == '1')
+	[data->mini_map.x_pos / 50] != '1')
 		my_mlx_pixel_put(data, data->mini_map.x, data->mini_map.y, GROUND);
 	else if (data->map2d[data->mini_map.y_pos / 50] \
-	[data->mini_map.x_pos / 50] != '1')
+	[data->mini_map.x_pos / 50] == '1')
 		my_mlx_pixel_put(data, data->mini_map.x, \
 		data->mini_map.y, DARK_TURQUOISE);
 }

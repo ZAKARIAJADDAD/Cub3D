@@ -24,7 +24,7 @@ void	fill_x_y_map(char *line, t_var **data)
 
 	len = ft_strlen(line);
 	if (len > (*data)->x_width)
-		(*data)->x_width = len;
+		(*data)->x_width = len * 50;
 }
 
 int	is_player(char c)

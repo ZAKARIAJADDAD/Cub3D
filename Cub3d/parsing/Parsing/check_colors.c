@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:24:03 by zjaddad           #+#    #+#             */
-/*   Updated: 2023/09/16 18:55:58 by zjaddad          ###   ########.fr       */
+/*   Updated: 2023/09/17 18:40:02 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	check_colors(t_2var **data)
 		s = tmp->value;
 		i = -1;
 		(*data)->count = 0;
+		if (s[0] == ',')
+			exit(ft_error("Error: Invalid RGB value!\n", 2));
 		while (s[++i])
 		{
 			if (!ft_isdigit(s[i]) && s[i] != ',' && s[i] != '\n')
