@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:18:59 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/17 18:51:33 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:29:00 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define BLUE 0x000000FF
 # define DARK_TURQUOISE 0x0000CED1
 # define PI 3.14159265358979323846
-# define PLAYER_SPEED 20
+# define PLAYER_SPEED 15
 # define LINE_LENTH 30
 # define GRIDE_SIZE 50
 # define TEXTURE_SIZE 50

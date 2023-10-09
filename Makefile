@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zjaddad <zjaddad@student.42.fr>            +#+  +:+       +#+         #
+#    By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 14:19:07 by zael-wad          #+#    #+#              #
-#    Updated: 2023/09/16 20:25:41 by zjaddad          ###   ########.fr        #
+#    Updated: 2023/09/18 13:18:48 by zael-wad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS = cub3d_bonus
 
 CC		=	clang
 
-CFLAGS	=	-fsanitize=address -g3 -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= 	Cub3d/main.c\
 			Cub3d/filed_of_view.c\
@@ -107,10 +107,10 @@ all : $(NAME)
 bonus: $(NAME_BONUS)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 $(NAME_BONUS) : $(OBJB)
-	$(CC) $(OBJB) $(CFLAGS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(SRCS_BONUS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME_BONUS)
 
 %.o: %.c
 	$(CC) -Imlx -c $< -o $@

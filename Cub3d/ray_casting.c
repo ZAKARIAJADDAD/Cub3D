@@ -6,7 +6,7 @@
 /*   By: zael-wad <zael-wad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:01:02 by zael-wad          #+#    #+#             */
-/*   Updated: 2023/09/17 17:37:08 by zael-wad         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:19:22 by zael-wad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	clac_projextion_distance(t_2var *data)
 void	find_y_inc(t_2var *data, int x_pos)
 {
 	double	wall_center;
-	double	start;
 	double	dx;
 	double	dy;
 

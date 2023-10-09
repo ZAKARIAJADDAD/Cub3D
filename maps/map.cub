@@ -4,7 +4,7 @@ SO ./TEXTURES/sawth.xpm
 EA ./TEXTURES/west.xpm
 WE ./TEXTURES/50_tex(1).xpm
 
-F   12,1,255
+F   108,125,255
 C   96,96,96
 
         11111111111111111111111111111
